@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+		<title>宜兴紫砂壶官网</title>
+		<link rel="shortcut icon" href="img/banner/teapot.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.0/css/swiper.min.css">
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="css/cc9cbb9d0dd6b9ab414a.css" />
+		<link rel="stylesheet" type="text/css" href="css/7c37c1f9cd04d16fbfdb.css" />
+		<link rel="stylesheet" type="text/css" href="css/5821d16a615f997c7cbf.css" />
+		<link rel="stylesheet" type="text/css" href="css/main_pot_ln.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?d941b64f020ad544018eaa6138334892";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+
+		<main id="app" v-cloak>
+			<div id="box">
+				<header><img src="img/product/head.jpg"></header>
+				<section class="mt30">
+					<img src="img/product/preferential.jpg">
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in list" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span><span data-v-217ef9e2="">职称:{{item.title}} </span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span><span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+									<span data-v-217ef9e2="">原价:{{item.original_price}}</span> <span data-v-217ef9e2="">现价:{{item.current_price}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+				<!-- Swiper轮播图 -->
+				<header class="hidden">
+					<div class="swiper-container">
+						<div class="swiper-wrapper"></div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</header>
+				<section class="mt30">
+					<img src="img/pot/pseudo_graph.jpg" data-original="img/product/recommend.jpg" class="lazy">
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in list_goods" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details2(index)">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span><span data-v-217ef9e2="">职称:{{item.title}} </span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span><span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+				<div class="click_to_consult" @click=" window.location.href='/' ">
+					<span>没有喜欢壶型 获取更多产品</span>
+				</div>
+				<section class="mt5 artist">
+					<img src="img/pot/pseudo_graph.jpg" data-original="img/product/artist.jpg" class="lazy mt20" style="">
+					<div class="goods_list mt10">
+						<div class="goods_container"  v-for="(item,index) in artist" :key="index">
+							<img :alt="item.name" v-lazy="item.img" class="lazy goods_limit">
+							<div class="goods_header">
+								<div class="artisr_name">{{item.name}} </div>
+								<div class="goods_zc">{{item.title}}</div>
+							</div> <button class="consult2" @click="toArtist(index)">代表作品</button>
+						</div>
+						
+						
+					</div>
+				</section>
+
+				<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+					<p class="partner ">
+						©重庆乐图社文化传播有限公司 版权所有 <br></p>
+				</footer>
+			
+
+
+			</div>
+
+			<div id="box2" style="display: none;">
+				<div class="van-nav-bar van-hairline--bottom" style=" font-size: 16px;height: 50px; z-index:1;" data-v-d09b833a=""
+				 data-v-cb1d9996="">
+					<div class="van-nav-bar__left" data-v-d09b833a="" style="font-size: 16px;height: 50px;line-height: 50px;" @click="toMain()">
+						<i class="van-icon van-icon-arrow-left van-nav-bar__arrow" data-v-d09b833a="" style="font-size: 18px;"></i>
+						<span class="van-nav-bar__text" data-v-d09b833a="">返回</span>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_header">
+					<img alt="" data-v-0c97a771="" :src="artist_list[0][goods_index].img" class="avatar">
+					<div data-v-0c97a771="" class="artist_info"><b data-v-0c97a771="" style="font-size: 22px; color: #FFFFFF;">{{artist_list[0][goods_index].name}}</b>
+						<p data-v-0c97a771="" class="artist_zc">{{artist_list[0][goods_index].title}}</p>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_des_container">
+					<div data-v-0c97a771="" class="artist_des" style="height: auto;">
+						<div data-v-0c97a771="">
+							<p style="text-indent: 1em;">
+								<span>
+									{{artist_list[0][goods_index].synopses}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<section class="mt15">
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/product/representative_works.jpg">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="item in artist_list[0][goods_index].goods_list">
+							<img alt="" :src="item.goods_img" class="goods_limit">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span><span data-v-217ef9e2="">职称:{{item.title}} </span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span><span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+
+
+
+
+
+
+
+					</div>
+
+				</section>
+				 
+
+			</div>
+			
+			<footer class="foot mt30 pr">
+				<div id="fbtn"><a href="tel:‭13524312680‬" class="details" style="width: 100%; display: none;"> 限时优惠礼包 快速领取 </a></div>
+				<div class="foot-xunjia">
+					<div class="inquiry">
+						<div id="damand"> 咨询{{submit_information.artist_name}}【{{submit_information.goods_name}}】价格</div>
+						<input type="text" class="shouji" placeholder="请输入手机号码" value="" name="xjTel" id="xjTel" maxlength="11">
+						<button @click="onClickXunjia()">点击提交</button>
+						<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+					</div>
+
+					<div class="footer-k" @click="close()"> </div>
+				</div>
+			</footer>
+			<div style="width: 100%; height: 10rem;"></div>
+			
+			<!-- 图片整屏展示 -->
+			<div class="pswp__scroll-wrap " id="swiper">
+				<div class="pswp_img swiper-container ">
+					<div class="swiper-wrapper">
+					</div>
+					<div class="custom-indicator" data-v-1c281437>
+						<span class="realIndex">1</span>/<span class="total"></span>
+					</div>
+
+				</div>
+			</div>
+			
+		</main>
+		
+
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-router/3.1.3/vue-router.min.js"></script>
+		<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script src="js/main_pot_ln.js"></script>
+		<script src="js/do.js" type="application/javascript"></script>
+
+
+
+
+
+	</body>
+
+</html>

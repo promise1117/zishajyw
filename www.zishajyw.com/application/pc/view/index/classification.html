@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="紫砂壶,宜兴紫砂壶,紫砂壶价格,紫砂杯,茶宠,紫砂壶收藏">
+		<meta name="description" content="紫砂壶中天是专业的紫砂壶门户网站，从事紫砂壶相关服务已有十多年，旨在服务各位壶友，提供具有特色的宜兴紫砂壶购买、收藏与投资等服务">
+		<meta name="copyright" content="紫砂壶中天">
+		<title>紫砂壶中天导航_紫砂壶门户网站</title>
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_head.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_nav.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_author.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_right_nav.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/css/common.css" />
+	</head>
+	<body>
+		<main id="app">
+			<!-- LOGO 标题 搜索 -->
+			{include file="public/header" /}
+
+			<div class="main w">
+				<div class="xuanhu">
+
+					<!--价格区间-->
+					<div class="actor-titp">
+						<p>价格区间</p>
+					</div>
+
+
+					<p class="xuanhu-mtit">类别<i></i></p>
+					<div class="xuanhu-con">
+						<ul class="xuanhu-hx">
+							<li>
+								<a href="/pc_category?price=1">
+									<img src="__INDEX__/img/picture/money.jpg">
+									<span>0～1000元</span>
+								</a>
+							</li>
+							<li>
+								<a href="/pc_category?price=2">
+									<img src="__INDEX__/img/picture/money.jpg">
+									<span>1000～4000元</span>
+								</a>
+							</li>
+							<li>
+								<a href="/pc_category?price=3">
+									<img src="__INDEX__/img/picture/money.jpg">
+									<span>4000～8000元</span>
+								</a>
+							</li>
+							<li>
+								<a href="/pc_category?price=4">
+									<img src="__INDEX__/img/picture/money.jpg">
+									<span>8000～20000元</span>
+								</a>
+							</li>
+							<li>
+								<a href="/pc_category?price=5">
+									<img src="__INDEX__/img/picture/money.jpg">
+									<span>20000以上</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+
+
+
+
+					{volist name="catlist" id="vo"}
+						<!--分类导航-->
+						<div class="actor-titp">
+							<p>{$vo.cat_name}</p>
+						</div>
+
+
+						{volist name="$vo.cat_two" id="v"}
+						<p class="xuanhu-mtit">{$v.cat_name}<i></i></p>
+						<div class="xuanhu-con">
+							<ul class="xuanhu-hx">
+								{volist name="$v.cat_three" id="vv" offset="0" length="9"}
+								<li>
+									<a href="/pc_category?cat_id={$vv.cat_id}&is_people={$vv.is_people}&is_shape={$vv.is_shape}&is_capacity={$vv.is_capacity}&is_theme={$vv.is_theme}&is_mud={$vv.is_mud}&is_tealeaf={$vv.is_tealeaf}&is_ambitus={$vv.is_ambitus}&is_chinaware={$vv.is_chinaware}&is_iron_kettle={$vv.is_iron_kettle}&is_silver_kettle={$vv.is_silver_kettle}">
+										<img src="{$vv.image|str_replace='http','https',###}">
+										<span>{$vv.cat_name}</span>
+									</a>
+								</li>
+								{/volist}
+
+							</ul>
+							{if count($v.cat_three)>9}
+							<ul>
+								<b class="hx-b">更多：</b>
+								{volist name="$v.cat_three" id="vv" offset="9"}
+								<li><a href="/pc_category?cat_id={$vv.cat_id}&is_people={$vv.is_people}&is_shape={$vv.is_shape}&is_capacity={$vv.is_capacity}&is_theme={$vv.is_theme}&is_mud={$vv.is_mud}&is_tealeaf={$vv.is_tealeaf}&is_ambitus={$vv.is_ambitus}&is_chinaware={$vv.is_chinaware}&is_iron_kettle={$vv.is_iron_kettle}&is_silver_kettle={$vv.is_silver_kettle}">{$vv.cat_name}</a></li>
+								{/volist}
+
+							</ul>
+							{/if}
+						</div>
+						{/volist}
+					{/volist}
+
+
+				</div>
+			</div>
+		</main>
+		{include file="public/footer" /}
+	</body>
+	<script src="__PC__/lib/jquery/jquery.js"></script>
+	<script src="__PC__/lib/vue/vue.min.js"></script>
+	<script src="__PC__/js/common.js"></script>
+	<!-- <script src="js/prudocts.js"></script> -->
+</html>

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+
+		<title>宜兴紫砂壶官网</title>
+
+		<link rel="shortcut icon" href="img/banner/teapot.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.0/css/swiper.min.css">
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+
+		<link rel="stylesheet" type="text/css" href="css/cc9cbb9d0dd6b9ab414a.css" />
+		<link rel="stylesheet" type="text/css" href="css/7c37c1f9cd04d16fbfdb.css" />
+		<link rel="stylesheet" type="text/css" href="css/5821d16a615f997c7cbf.css" />
+		<link rel="stylesheet" type="text/css" href="css/tea_pot.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?30039a698f5a2d5408982431b4f8a40e";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+	</head>
+
+	<body>
+				
+		<div id="app" v-cloak>
+			<div id="box">
+				<header class="header">
+					<img src="img/mainPot/banner1.jpg">
+				</header>
+
+
+				<main class="wrapper">
+					<div data-v-1a8727e3="" class="scroll_wrap">
+						<h2 class="customized">已结缘名单</h2>
+						<div data-v-1a8727e3="" class="scroll_box">
+							<div class="dashed"></div>
+							<div data-v-1a8727e3="" class="ul_box swiper-container">
+								<ul data-v-1a8727e3="" id="cont" class="swiper-wrapper">
+									<li data-v-1a8727e3 class="swiper-slide" v-for="(item,index) in custom" :key="index">
+										<span data-v-1a8727e3>{{item.name}}</span> 
+										<span data-v-1a8727e3 class="type">{{item.telphone}}</span>
+										<span data-v-1a8727e3 class="school">{{item.customized}}</span>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</main>
+
+				<section class="mt15">
+					<img src="img/mainPot/limited_time_special.jpg">
+
+					<div class="goods_list">
+						<div class="goods_container" v-for="(item,index) in special_goods" :key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<div class="goods_title">
+									<div class="bd_gray"> </div>
+									<div class="goods_name" style="width: 50%;">{{item.goods_name}}</div>
+									<div class="bd_gray"> </div>
+								</div>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="" style="display: none;">职称:{{item.title}}</span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span> <span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section class="mt15">
+					<img  src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/mainPot/recommend.jpg">
+				
+					<div class="goods_list">
+						<div class="goods_container" v-for="(item,index) in list_goods" :key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details2(index)">
+							<div class="goods_header">
+								<div class="goods_title">
+									<div class="bd_gray"> </div>
+									<div class="goods_name" style="width: 50%;">{{item.goods_name}}</div>
+									<div class="bd_gray"> </div>
+								</div>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="" style="display: none;">职称:{{item.title}}</span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span> <span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+				
+					</div>
+				
+				</section>
+
+				  
+
+				
+				<section class="mt20">
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/mainPot/master_collection.jpg">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in collection_goods" :key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details3(index)">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="">职称:{{item.title}}</span>
+									<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span> <span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+
+				</section>
+
+
+
+
+				<div class="click_to_consult" @click=" window.location.href='/' ">
+					<span>没有喜欢壶型 获取更多产品</span>
+				</div>
+				<section class="mt50">
+
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/mainPot/artist_recomend.jpg">
+
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in artist" :key="index">
+							<img :alt="item.name" v-lazy="item.img" class="lazy goods_limit">
+							<div class="goods_header">
+								<div class="artisr_name">{{item.name}} </div>
+								<div class="goods_zc">{{item.title}}</div>
+							</div>
+							<button class="consult2" @click="toArtist(index)">代表作品</button>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section class="mt15">
+
+					<img @click="inquiry('更多名师',1)" src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_10.jpg">
+
+				</section>
+
+				<section class="mt25">
+
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/mainPot/identification.jpg">
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_12.jpg">
+					<img @click="inquiry('真假鉴别',1)" src="img/pot/pseudo_graph.jpg" class="lazy mt15" data-original="img/pot/inquiry_13.jpg">
+
+				</section>
+
+				<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+					<p class="partner">
+						©重庆乐图社文化传播有限公司 版权所有 <br></p>
+				</footer>
+
+
+
+
+			</div>
+			<div id="box2" style="display: none;">
+				<div class="van-nav-bar van-hairline--bottom" style=" font-size: 16px;height: 50px; z-index:1;" data-v-d09b833a=""
+				 data-v-cb1d9996="">
+					<div class="van-nav-bar__left" data-v-d09b833a="" style="font-size: 16px;height: 50px;line-height: 50px;" @click="toMain()">
+						<i class="van-icon van-icon-arrow-left van-nav-bar__arrow" data-v-d09b833a="" style="font-size: 18px;"></i>
+						<span class="van-nav-bar__text" data-v-d09b833a="">返回</span>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_header">
+					<img alt="" data-v-0c97a771="" :src="artist_list[0][goods_index].img" class="avatar">
+					<div data-v-0c97a771="" class="artist_info"><b data-v-0c97a771="" style="font-size: 22px; color: #5B3A31;">{{artist_list[0][goods_index].name}}</b>
+						<p data-v-0c97a771="" class="artist_zc">{{artist_list[0][goods_index].title}}</p>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_des_container">
+					<div data-v-0c97a771="" class="artist_des" style="height: auto;">
+						<div data-v-0c97a771="">
+							<p style="text-indent: 1em;">
+								<span>
+									{{artist_list[0][goods_index].synopses}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<section class="mt15">
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_15.jpg">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="item in artist_list[0][goods_index].goods_list">
+							<img alt="" :src="item.goods_img" class="goods_limit">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="">泥料：{{item.slurry}}</span>
+									<span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+
+				</section>
+
+			</div>
+			<div class="foot-xunjia">
+				<div class="inquiry">
+					<div id="damand"> 咨询{{submit_information.artist_name}}【{{submit_information.goods_name}}】价格</div>
+					<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" autofocus="autofocus" value="" name="xjTel" id="xjTel"
+					 maxlength="11">
+					<button @click="onClickXunjia()">点击提交</button>
+					<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+				</div>
+
+				<div class="footer-k" @click="close()"> </div>
+			</div>
+			<div style="width: 100%;height: 10rem"> </div>
+			<div id="fbtn">
+
+				<a class="details" href="tel:‭19821607320‬" style="width: 100%;display: none;"> 限时优惠礼包 快速领取 </a>
+			</div>
+			<!-- 图片整屏展示 -->
+			<div class="pswp__scroll-wrap " id="swiper">
+				<div class="pswp_img swiper-container ">
+					<div class="swiper-wrapper">
+					</div>
+					<div class="custom-indicator" data-v-1c281437>
+						<span class="realIndex">1</span>/<span class="total"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-router/3.1.3/vue-router.min.js"></script>
+		<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script src="js/tea_pot.js"></script>
+		<script src="js/MU6vN1.js"></script>
+		<!--	
+
+
+		<script>
+			const router = new VueRouter({
+				routes: [{
+					path: '/',
+					component: {
+						template: '#tem'
+					}
+				}, {
+					path: '/artist_detail',
+					component: {
+						template: '#artist_detail'
+					}
+				}]
+			})
+
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					goods_name: '邵美华',
+					goods_index: 0,
+					list_goods:[{
+						img: 'img/pot/main_goods_01.jpg',
+						goods_name: '三足顶狮',
+						artist_name: '范能',
+						slurry: '紫泥',
+						capacity: '350cc以上'
+					},{
+						img: 'img/pot/main_goods_02.jpg',
+						goods_name: '瑞狮壶',
+						artist_name: '曹志刚',
+						slurry: '紫泥',
+						capacity: '350cc以上'
+					},{
+						img: 'img/pot/main_goods_03.jpg',
+						goods_name: '仿古',
+						artist_name: '蒋升',
+						slurry: '玉砂料',
+						capacity: '300cc-350cc'
+					},{
+						img: 'img/pot/main_goods_04.jpg',
+						goods_name: '品莲',
+						artist_name: '张彩英',
+						slurry: '红泥',
+						capacity: '390cc'
+					},{
+						img: 'img/pot/main_goods_05.jpg',
+						goods_name: '清韵',
+						artist_name: '丁洪斌',
+						slurry: '紫泥',
+						capacity: '300cc-350cc'
+					},{
+						img: 'img/pot/main_goods_06.jpg',
+						goods_name: '八方玲珑',
+						artist_name: '吴文彩',
+						slurry: '紫泥',
+						capacity: '250cc-300cc'
+					}],
+					list: [
+						[{
+							id: 0,
+							name: '邵美华',
+							img: 'img/pot/邵美华_03.png',
+							title: '国家级工艺美术师',
+							goods_list: [{
+								goods_name: '百福石瓢',
+								artist_name: '邵美华',
+								goods_img: 'img/pot/邵美华_03.jpg',
+								slurry: '紫泥',
+								capacity: '150cc以下'
+							}, {
+								goods_name: '龙纹德钟',
+								artist_name: '邵美华',
+								goods_img: 'img/pot/邵美华_05.jpg',
+								slurry: '大红袍',
+								capacity: '200cc-250cc'
+							}, {
+								goods_name: '茄段',
+								artist_name: '邵美华',
+								goods_img: 'img/pot/邵美华_09.jpg',
+								slurry: '段泥',
+								capacity: '250cc-300cc'
+							}, {
+								goods_name: '水平壶',
+								artist_name: '邵美华',
+								goods_img: 'img/pot/邵美华_10.jpg',
+								slurry: '黑泥',
+								capacity: '150cc以下'
+							}],
+							synopses: '邵美华， 国家级工艺美术师， 1967 年生于陶都宜兴紫砂世家， 1989 年进宜兴紫砂工艺厂， 师从工艺师丁亚平， 其后经多年学艺， 技术上进步很快。2001 年在宜兴紫砂工艺厂潘壶研究所， 又得到工艺大师何道洪及及高级工艺师丁洪顺指导， 其作品有独到之处， 特别是制作绞泥类作品得到广大壶艺爱好者的欢迎， 其制作的绞泥“ 元韵壶” 在中国陶瓷艺术展上荣获中陶“ 方圆杯” 优秀奖。邵美华， 2012 年国工， 1967 年生于陶都宜兴紫砂世家， 1989 年进宜兴紫砂工艺厂， 师从工艺师丁亚平， 其后经多年学艺， 技术上进步很快。 2001 年在宜兴紫 '
+						}, {
+							id: 1,
+							name: '吴文彩',
+							img: 'img/pot/吴文彩_03.png',
+							title: '国家级工艺美术师',
+							goods_list: [{
+								goods_name: '八面玲珑',
+								artist_name: '吴文彩',
+								goods_img: 'img/pot/吴文彩_03.jpg',
+								slurry: '紫泥',
+								capacity: '250cc-300cc'
+							}, {
+								goods_name: '大红袍西施',
+								artist_name: '吴文彩',
+								goods_img: 'img/pot/吴文彩_05.jpg',
+								slurry: '大红袍',
+								capacity: '150cc-200cc'
+							}, {
+								goods_name: '牛盖石瓢',
+								artist_name: '吴文彩',
+								goods_img: 'img/pot/吴文彩_09.jpg',
+								slurry: '紫茄泥',
+								capacity: '300cc-350cc'
+							}, {
+								goods_name: '龙玺',
+								artist_name: '吴文彩',
+								goods_img: 'img/pot/吴文彩_10.jpg',
+								slurry: '紫泥',
+								capacity: '250cc-300cc'
+							}],
+							synopses: ' 出生于宜兴市丁蜀镇， 自幼耳濡目染。 对紫砂情有独钟。 自从进入紫砂行业， 凭着对紫砂艺术的迷恋和执着， 努力学习， 探索， 创新， 期间得到多位名师的悉心指导。 造型设计工艺水准大有长进。 其作品造型优美清新、 典雅大方， 在平稳中求动感、 流畅中求曲折、 传统中求新意、 使用中求美观、 文雅中求情趣、 吸取传统工艺之精华， 结合现代工艺之巧妙， 作品中充满了生命力和想象力， 深受壶艺爱好者的青睐。 其作品多次在国内外展出并获奖， 并被多家报刊杂志刊登， 深受众多收藏家和紫砂爱好者追捧。 '
+						}, {
+							id: 2,
+							name: '吴余生',
+							img: 'img/pot/吴余生_03.png',
+							title: '国家级工艺美术师',
+							goods_list: [{
+								goods_name: '六方矮潘',
+								artist_name: '吴余生',
+								goods_img: 'img/pot/吴余生_03.jpg',
+								slurry: '段泥',
+								capacity: '250cc-300cc'
+							}, {
+								goods_name: '德钟',
+								artist_name: '吴余生',
+								goods_img: 'img/pot/吴余生_05.jpg',
+								slurry: '大红袍',
+								capacity: '150cc-200cc'
+							}, {
+								goods_name: '竹编虚扁',
+								artist_name: '吴余生',
+								goods_img: 'img/pot/吴余生_09.jpg',
+								slurry: '黑泥',
+								capacity: '250cc-300cc'
+							}, {
+								goods_name: '掇球',
+								artist_name: '吴余生',
+								goods_img: 'img/pot/吴余生_10.jpg',
+								slurry: '黑泥',
+								capacity: '300cc-350cc'
+							}],
+							synopses: ' 1963年生，国家级工艺美术师。自幼爱好紫砂艺术，掌握了扎实的紫砂制壶基本功。后受到多位紫砂大师指点，制壶技艺突飞猛进。凭着对紫砂艺术的迷恋与执着，不断努力学习、探索创新，作品不仅工艺精湛、造型大方，而且整体十分和谐，充分体现了紫砂壶的灵气和韵味，受到壶界同仁和紫砂壶收藏家的好评和肯定。经常参加各类紫砂展会，多次获奖。'
+						}, {
+							id: 3,
+							name: '杨志华',
+							img: 'img/pot/杨志华_03.png',
+							title: '国家级工艺美术师',
+							goods_list: [{
+								goods_name: '扁腹',
+								artist_name: '杨志华',
+								goods_img: 'img/pot/杨志华_03.jpg',
+								slurry: '绿泥',
+								capacity: '200cc-250cc'
+							}, {
+								goods_name: '扁腹',
+								artist_name: '杨志华',
+								goods_img: 'img/pot/杨志华_05.jpg',
+								slurry: '绿泥',
+								capacity: '150cc-200cc'
+							}, {
+								goods_name: '景舟石瓢',
+								artist_name: '杨志华',
+								goods_img: 'img/pot/杨志华_09.jpg',
+								slurry: '绿泥',
+								capacity: '200cc-250cc'
+							}, {
+								goods_name: '半月',
+								artist_name: '杨志华',
+								goods_img: 'img/pot/杨志华_10.jpg',
+								slurry: '绿泥',
+								capacity: '150cc以下'
+							}],
+							synopses: '1964年生于陶都紫砂制陶世家，从小耳闻目濡，深受紫砂艺术熏陶。1984年进紫砂工艺二厂学艺，接受传统紫砂技艺训练，为今后从事紫砂艺术工作打下了扎实的基础。1988年进中央工艺美术学院进行造型设计深造，在此期间对紫砂壶的造型设计从理论到实践都有了自身独到的理解。后经过几十年经验积累具备了一定的艺术造诣，并形成了个人的艺术风格。作品类型多样，壶艺造型十分注重对题材的表达，内涵意境丰富细腻入微。其壶艺作品富有东方文化底韵，古朴典雅，浑然一体，神形兼备，线条舒展流畅，着重体现作品的精、气、神的表达。深受海内外											'
+						}]
+					]
+
+				},
+				methods: {
+					lazyload() {
+						$(".lazy").lazyload({
+							threshold: 200, //设置临界点
+							effect: "fadeIn", //使用特效
+							failure_limit: 20, //当图片不连续时,通过 failurelimit 选项来控制加载行为.
+							skip_invisible: false //加载隐藏图片
+						});
+					},
+
+					inquiry(name) {
+						console.log(name)
+						this.goods_name = name;
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+					},
+					onClickXunjia() {
+						layer.load();
+
+						telphone2();
+
+					},
+					close() {
+						$('.footer-k,.foot-xunjia').hide();
+
+						$('#fbtn').show();
+					},
+					toArtist(index) {
+						this.goods_index = index;
+						$('#box').hide();
+						$('#box2').show();
+					},
+					toMain() {
+						$('#box2').hide();
+						$('#box').show();
+					}
+
+
+				},
+				router,
+				created() {
+
+
+				},
+				mounted() {
+					this.lazyload();
+				},
+				watch: {
+
+				}
+			})
+
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			function telphone2() {
+
+				const telphone = $("#xjTel").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) == false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+
+					var demand = [];
+					demand.push($('#damand').text().trim());
+					demand = JSON.stringify(demand)
+					console.log(demand)
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json', //跨域请求
+
+						success: function(data) {
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						}
+
+					})
+
+				}
+
+			}
+			$(function() {
+
+				$('.details').attr('href', 'tel:‭19821607323‬').text('限时优惠礼包 快速领取');
+				$('.partner').text('©郑州码卓信息科技有限公司 版权所有');
+
+				// 已定制名单
+				const custom = [{
+					name: '王**',
+					telphone: '138****1358',
+					customized: '定制了清韵'
+				}, {
+					name: '赵**',
+					telphone: '159****3156',
+					customized: '定制了品莲'
+				}, {
+					name: '陈**',
+					telphone: '172****5612',
+					customized: '定制了八方玲珑'
+				}, {
+					name: '张**',
+					telphone: '158****7358',
+					customized: '获得了万事如意'
+				}, {
+					name: '吴**',
+					telphone: '178****1356',
+					customized: '定制了战龙'
+				}, {
+					name: '张**',
+					telphone: '138****8356',
+					customized: '定制了紫砂苹果'
+				}, {
+					name: '李**',
+					telphone: '171****9356',
+					customized: '定制了王蟾'
+				}, {
+					name: '王**',
+					telphone: '138****1358',
+					customized: '定制了清韵'
+				}, {
+					name: '赵**',
+					telphone: '159****3156',
+					customized: '定制了竹报平安'
+				}, {
+					name: '陈**',
+					telphone: '172****5612',
+					customized: '定制了八方玲珑'
+				}, {
+					name: '吴**',
+					telphone: '178****1356',
+					customized: '定制了战龙'
+				}, {
+					name: '张**',
+					telphone: '138****8356',
+					customized: '定制了紫砂苹果'
+				}, {
+					name: '李**',
+					telphone: '171****9356',
+					customized: '定制了王蟾'
+				}, {
+					name: '王**',
+					telphone: '138****1358',
+					customized: '定制了清韵'
+				}, {
+					name: '赵**',
+					telphone: '159****3156',
+					customized: '定制了玉佩壶'
+				}]
+			
+				let customized = "";
+				for (let i of custom) {
+					customized +=
+						`<li data-v-1a8727e3 class="swiper-slide">
+										<span data-v-1a8727e3>${i.name}</span> 
+										<span data-v-1a8727e3 class="type">${i.telphone}</span>
+										<span data-v-1a8727e3 class="school">${i.customized}</span>
+									</li>`;
+			
+				};
+				$("#cont").html(customized);
+			
+				var swiper_custom = new Swiper('.ul_box.swiper-container', {
+					height: '26',
+					autoplay: {
+						delay: 4000,
+					}, //自动滑动
+					effect: 'slide', //滑动效果
+					// 轮播图的方向，也可以是vertical方向
+					direction: 'vertical',
+					//环形切换关闭
+					loop: true,
+					// 切换的速度
+					speed: 800, //滑动或者自动换页时的速度
+					// 这样，即使我们滑动之后， 定时器也不会被清除
+					autoplayDisableOnInteraction: true,
+				});
+
+
+				function telphone() {
+
+					const telphone = $("#telphone1").val();
+
+					var regCode = /^1\d{10}$/;
+
+					if (regCode.test(telphone) == false) {
+
+						layer.close(layer.index);
+
+						layer.msg('请输入您的手机号,手机号码不正确', {
+							icon: 5,
+							time: 1000
+						})
+
+						return false;
+
+					} else {
+
+						var demand = ['咨询紫砂壶'];
+
+
+						demand = JSON.stringify(demand);
+
+						$.ajax({
+
+							type: 'post',
+
+							url: 'https://www.zishajyw.com/pot_add',
+
+							data: {
+								'telphone': telphone,
+								'demand': demand
+							},
+
+							dataType: 'json', //跨域请求
+
+							success: function(data) {
+
+								/*console.log(data);
+						
+										layer.close(layer.index);
+						
+										if(data.code == 0){
+						
+											layer.msg('提交成功',{icon:6,time:2000})
+						
+										}else{
+						
+											layer.msg('提交失敗',{icon:5,time:2000})
+						
+										}*/
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							},
+
+							error: function() {
+
+								layer.close(layer.index);
+
+								//layer.msg('提交失敗',{icon:5,time:2000});
+
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							}
+
+						})
+
+					}
+
+				}
+
+				$('.confirm').click(function() {
+
+					layer.load();
+
+					telphone();
+
+				})
+
+
+				// 复制文本内容
+				var copyBtn = new ClipboardJS('.full-gift');
+
+				copyBtn.on("success", function(e) {
+					// 复制成功
+					$('.full-gift span').text('已复制');
+					e.clearSelection();
+				});
+				copyBtn.on("error", function(e) {
+					//复制失败；
+					console.log(e.action)
+				});
+
+
+				//弹出二维码
+				$('activities,.weixin').click(function() {
+					$('.full-gift span').text('点击复制微信号');
+					$('.footer-k,.foot-xunjia').show();
+
+					$('.foot-xunjia').stop().animate({
+
+						bottom: 0
+
+					}, 200);
+
+					$('#fbtn').hide();
+				})
+
+
+				// 切换微信号和二维码
+				/*const dataWeixin = [
+							[{
+								"src": "code_01.jpg",
+								"wechat_number": 'CHENKEKE556688'
+							}],
+							[{
+								"src": "code_02.jpg",
+								"wechat_number": 'DAPENG68730'
+							}],
+							[{
+								"src": "code_03.jpg",
+								"wechat_number": 'WXID263526'
+							}],
+							[{
+								"src": "code_04.jpg",
+								"wechat_number": 'jiasuo7015'
+							}],
+							[{
+								"src": "code_05.jpg",
+								"wechat_number": 'xby497'
+							}],
+							[{
+								"src": "code_06.jpg",
+								"wechat_number": 'LIU1126589'
+							}]
+						];
+		
+						let index = Math.ceil(Math.random() * 5);
+						// move();
+						// console.log(index)
+		
+						function move() {
+							index = index > 5 ? 0 : index;
+							$('.code img').attr('src', 'img/' + dataWeixin[index][0].src);
+							$('.full-gift').attr('data-clipboard-text', dataWeixin[index][0].wechat_number);
+							$('.wechat_number,.weixin').text(dataWeixin[index][0].wechat_number);
+							$('.weixin').css({
+								'letter-spacing': '2px',
+								'font-size': '1.5rem'
+							})
+							if (index == 0 || index == 1) {
+								$('.weixin').css({
+									'letter-spacing': 0,
+									'font-size': '1.2rem'
+								})
+							}
+						};
+		
+						function getTime() {
+							const time = new Date();
+							const m = time.getMinutes();
+							console.log(m)
+							if (m == 10) {
+								index++;
+								move();
+							}
+		
+						}
+						// const timeInterval = setInterval(function() {
+						// 	getTime()
+						// }, 1000 * 58);*/
+
+
+
+
+
+
+			})
+		</script>
+	-->
+
+	</body>
+
+</html>

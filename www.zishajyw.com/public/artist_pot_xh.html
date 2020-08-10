@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+
+		<title>宜兴紫砂壶官网</title>
+
+		<link rel="shortcut icon" href="img/banner/teapot.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/5.3.8/css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/cc9cbb9d0dd6b9ab414a.css" />
+		<link rel="stylesheet" type="text/css" href="css/7c37c1f9cd04d16fbfdb.css" />
+		<link rel="stylesheet" type="text/css" href="css/5821d16a615f997c7cbf.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/artist_pot.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?e042621f9b9875ee0faf6ba1358211b8";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+
+	<body>
+
+		<div id="app" v-cloak>
+			<div id="box" style="display: block;">
+				<!-- 搜索弹窗 -->
+				<div data-v-87207564="" class="search_navbar">
+					<div data-v-87207564="" class="search_container">
+						<input data-v-87207564="" v-model="search" class="search—input" type="search" name="search" maxlength="20"
+						 placeholder="输入名师名称搜索">
+					</div>
+					<button data-v-87207564="" class="searchBtn" @click="search_api()">立即搜索</button>
+				</div>
+				<main>
+					 <img src="img/banner/banner6.jpg">
+				</main>
+				
+				<main class="mt15">
+
+					<img class="lazy" src="img/pot/inquiry_9.jpg">
+
+					<div class="goods_list mt10">
+						<div class="goods_container"  v-for="(item,index) in artists" :key="index">
+							<img :alt="item.name" v-lazy="item.img" class="lazy goods_limit">
+							<div class="goods_header">
+								<div class="artisr_name">{{item.name}} </div>
+								<div class="goods_zc">{{item.title}}</div>
+							</div> <button class="consult2" @click="toArtist(index)">代表作品</button>
+						</div>
+												 
+					</div>
+
+				</main>
+
+				<main class="mt15">
+
+					<img @click="inquiry('更多名师',1)" class="lazy" src="img/pot/inquiry_10.jpg">
+
+				</main>
+				<h2 class="cooperation_artist">
+					合作艺人
+				</h2>
+				<div class="goods_list mt10">
+					<div class="goods_container" v-for="item in artist">
+						<img alt="" :src="item.image" class="goods_limit">
+						<div class="goods_header">
+							<div class="goods_name">姓名：{{item.cat_name}}</div>
+							<div class="goods_zc">职称：{{item.position}}</div>
+							<button class="consult2" @click="getArtist(item.cat_id)">代表作品</button>
+						</div>
+					</div>
+				</div>
+				<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+
+					<p class="partner">
+						©重庆乐图社文化传播有限公司 版权所有<br>
+					</p>
+				</footer>
+			
+				<div style="width: 100%;height: 6rem"> </div>
+
+			</div>
+
+			<div id="box2" style="display: none;">
+				<div class="van-nav-bar van-hairline--bottom" style=" font-size: 16px;height: 50px; z-index:1;" data-v-d09b833a=""
+				 data-v-cb1d9996="">
+					<div class="van-nav-bar__left" data-v-d09b833a="" style="font-size: 16px;height: 50px;line-height: 50px;" @click="toMain()">
+						<i class="van-icon van-icon-arrow-left van-nav-bar__arrow" data-v-d09b833a="" style="font-size: 18px;"></i>
+						<span class="van-nav-bar__text" data-v-d09b833a="">返回</span>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_header">
+					<img alt="" data-v-0c97a771="" :src="artist_list[0][goods_index].img" class="avatar">
+					<div data-v-0c97a771="" class="artist_info"><b data-v-0c97a771="" style="font-size: 22px; color: #5B3A31;">{{artist_list[0][goods_index].name}}</b>
+						<p data-v-0c97a771="" class="artist_zc">{{artist_list[0][goods_index].title}}</p>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_des_container">
+					<div data-v-0c97a771="" class="artist_des" style="height: auto;">
+						<div data-v-0c97a771="">
+							<p style="text-indent: 1em;">
+								<span>
+									{{artist_list[0][goods_index].synopses}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<section class="mt15">
+					<img src="img/pot/inquiry_15.jpg">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="item in artist_list[0][goods_index].goods_list">
+							<img alt="" :src="item.goods_img" class="goods_limit">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="">泥料：{{item.slurry}}</span>
+									<span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+					<div style="width: 100%;height: 6rem"> </div>
+				</section>
+			
+			</div>
+
+			<div id="box3" style="display: none;">
+				<div class="van-nav-bar van-hairline--bottom" style=" font-size: 16px;height: 50px; z-index:1;" data-v-d09b833a=""
+				 data-v-cb1d9996="">
+					<div class="van-nav-bar__left" data-v-d09b833a="" style="font-size: 16px;height: 50px;line-height: 50px;" @click="toMain()">
+						<i class="van-icon van-icon-arrow-left van-nav-bar__arrow" data-v-d09b833a="" style="font-size: 18px;"></i>
+						<span class="van-nav-bar__text" data-v-d09b833a="">返回</span>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_header">
+					<!-- <img alt="" data-v-0c97a771="" :src="list.artistlist.img" class="avatar"> -->
+					<div data-v-0c97a771="" class="artist_info"><b data-v-0c97a771="" style="font-size: 22px; color: #5B3A31;">{{list.artistlist.cat_name}}</b>
+						<p data-v-0c97a771="" class="artist_zc">{{list.artistlist.position}}</p>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_des_container">
+					<div data-v-0c97a771="" class="artist_des" style="height: auto;">
+						<div data-v-0c97a771="">
+							<p style="text-indent: 1em;">
+								<span>
+									{{list.artistlist.description}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<section class="mt15">
+					<img src="img/pot/inquiry_15.jpg" class="lazy">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="item in list.goods.slice(0, 4)">
+							<img alt="" :src="item.img" class="goods_limit">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.people_name}} </span> <span data-v-217ef9e2="">泥料：{{item.mud_name}}</span>
+									<span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity_name}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry2(item.people_name,item.name,item.mud_name)">点击询价</button>
+						</div>
+
+					</div>
+
+					<div style="width: 100%;height: 6rem"> </div>
+
+				</section>
+			</div>
+			
+			<footer class="foot mt30 pr">
+					<div id="fbtn"><a href="tel:‭19821607323‬" class="details" style="width: 100%;display: none;">快速咨询，客服一对一服务 </a></div>
+					<div class="foot-xunjia">
+						<div class="inquiry">
+							<div id="damand"> 咨询{{submit_information.artist_name}}【{{submit_information.goods_name}}】价格</div>
+							<input type="text" placeholder="请输入手机号码" autofocus="autofocus"
+							 value="" name="xjTel" id="xjTel" maxlength="11" class="shouji yu_zi_xun">
+							<button @click="onClickXunjia()">点击提交</button>
+							<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+						</div>
+
+						<div class="footer-k" @click="close()"> </div>
+					</div>
+			</footer>
+
+		</div>
+
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-router/3.1.3/vue-router.min.js"></script>
+		<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/5.3.8/js/swiper.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="js/do.js" type="application/javascript"></script>
+
+		<script>
+			Vue.use(VueLazyload, {
+				preLoad: 1.3,
+				error: 'img/pot/pseudo_graph.jpg',
+				loading: 'img/pot/pseudo_graph.jpg',
+				attempt: 1
+			});	
+		
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					artist: [],
+					search: '',
+					goods_name: '邵美华',
+					goods_index: 0,
+					list: [],
+					submit_information: {},
+					artists:[
+						{
+							id:1,
+							name: '顾绍培',
+							img:'img/product/artist_01.jpg',
+							title: '研究员级高级工艺美术师'
+						},
+						{
+							id:2,
+							name: '程辉',
+							img:'img/product/artist_02.jpg',
+							title: '研究员级高级工艺美术师'
+						},
+						{
+							id:3,
+							name: '季益顺',
+							img:'img/product/artist_03.jpg',
+							title: '研究员级高级工艺美术师'
+						},
+						{
+							id:4,
+							name: '李昌鸿',
+							img:'img/product/artist_04.jpg',
+							title: '研究员级高级工艺美术师'
+						}
+					],
+				
+					artist_list: [
+						[{
+							id: 0,
+							name: '顾绍培',
+							img: 'img/product/artist1.png',
+							title: '研究员级高级工艺美术师',
+							goods_list: [{
+								goods_name: '高旦圆壶',
+								artist_name: '顾绍培',
+								goods_img: 'img/product/artist1_001.jpg',
+								slurry: '紫泥',
+								title: '研高',
+								capacity: '200cc-250cc'
+							}],
+							synopses: '非物质文化遗产传承人 中国工艺美术大师 研究员级高级工艺美术师 中国工艺美术学会会员 中国陶瓷协会会员 中国工业设计协会会员 1945年出生于陶艺世家，1958年进宜兴陶瓷中学读书学艺，启蒙老师是潘春芳教授，转入紫砂工艺厂后，师承著名老艺人陈福渊，后得当代壶艺泰斗顾景舟悉心提携。从事紫砂已50载，深研诸名师技法，集各派之精华，融艺术个性于一体。创作新品100余个，曾获德国莱比锡国际博览会金奖；中国工艺美术品百花金杯奖；首届中国工艺美术华艺杯金奖；'
+						}, {
+							id: 1,
+							name: '程辉',
+							img: 'img/product/artist2.png',
+							title: '研究员级高级工艺美术师',
+							goods_list: [{
+								goods_name: '亚明四方',
+								artist_name: '程辉',
+								goods_img: 'img/product/artist2_001.jpg',
+								slurry: '紫泥',
+								title: '研高',
+								capacity: '250cc-300cc'
+							}],
+							synopses: '程辉   紫砂艺术大师、江苏省工艺美术大师、研究员级高级工艺美术师，中国工艺美术学会会员、中国宜兴紫砂行业协会副秘书长、江苏省宜兴紫砂收藏鉴赏专业委员会秘书长、宜兴方井紫砂艺术总监、哈尔滨工业大学兼职教授、紫砂非物质文化遗产代表性传承人。国家标准《紫砂陶器》（GB/T1989)起草人、《宜兴紫砂泥料标准》制定专家组组长。字润年，斋号守愚斋，1944年生于江苏宜兴陶瓷世家，自1958年进入宜兴紫砂工艺厂，师从一代宗师吴云根先生学习紫砂成型艺术，练就扎实的制壶功底，年轻时期在紫砂界就出类拔萃'
+						}, {
+							id: 2,
+							name: '季益顺',
+							img: 'img/product/artist3.png',
+							title: '研究员级高级工艺美术师',
+							goods_list: [{
+								goods_name: '浩然正气',
+								artist_name: '季益顺',
+								goods_img: 'img/product/artist3_001.jpg',
+								slurry: '绿泥',
+								title: '研高',
+								capacity: '250cc-300cc'
+							}],
+							synopses: '季益顺，1960年出生于江苏宜兴。中国工艺美术大师，中国陶瓷艺术大师，研究员级高级工艺美术师，中国工艺美术学会会员，紫砂行业协会壶艺专业委员主任，收藏监赏委员会主任。 　国际、国内权威性艺术展评多次金奖获得者。紫砂艺术承前启后的扛鼎人物。现宜兴方圆紫砂工艺有限公司供职。 　1960年生于陶都宜兴陶瓷世家，自幼生活在陶瓷世界之中，紫砂陶的高雅艺术熏陶着他的童年，也培养着他对紫砂艺术的悟性与天赋。 　1978年踏进紫砂工艺厂后，师从著名紫砂陶艺家、高级工艺师高丽君学艺。恩师如母，言传手教，使本来就灵性、'
+						}, {
+							id: 3,
+							name: '李昌鸿',
+							img: 'img/product/artist4.png',
+							title: '研究员级高级工艺美术师',
+							goods_list: [{
+								goods_name: '荷叶筋纹',
+								artist_name: '李昌鸿',
+								goods_img: 'img/product/artist4_001.jpg',
+								slurry: '天青泥',
+								title: '研高',
+								capacity: '150cc-200cc'
+							}],
+							synopses: '李昌鸿 中国工艺美术大师 中国陶瓷艺术大师 研究员级高级工艺美术师 世界名人 1937年生，1955年进紫砂工艺厂，师从顾景舟大师。“丙寅大吉”“九龙组壶”“四方特奎壶”“青玉四方茶具”“一衡茶具”“高八方壶”“斗方壶”等一批作品二十多次荣获国际、国内金银一等奖，在行业中有“获奖大户”美誉。大师为人厚道，谦虚好学，师德高尚，工作之余喜欢习字作画，钻研紫砂理论，培育新人，传授技艺。早期与顾景舟、徐秀棠合编《宜兴紫砂珍赏》;与唐伯年、叶龙耕合编《宜兴紫砂茶具实用功能的研究》'
+						}]
+					]
+				},
+				methods: {
+					lazyload() {
+						$(".lazy").lazyload({
+							threshold: 200, //设置临界点
+							effect: "fadeIn", //使用特效
+							failure_limit: 20, //当图片不连续时,通过 failurelimit 选项来控制加载行为.
+							skip_invisible: false //加载隐藏图片
+						});
+					},
+
+					inquiry(item, flag) {
+						this.submit_information = item;
+						$('#damand').text('咨询' + item.artist_name + '【' + item.goods_name + '】价格');
+						
+						if (flag == 1) {
+							$('#damand').text('咨询' + item);
+						}
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+						$('#xjTel').select();
+					},
+					inquiry2(artist, goods,capacity) {
+
+					
+						this.submit_information = {
+							artist_name:artist,
+							goods_name:goods,
+							capacity
+						};
+
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+						$('#xjTel').select();
+					},
+					onClickXunjia() {
+						layer.load();
+
+						telphone2();
+						this.close()
+
+					},
+					close() {
+						$('.footer-k,.foot-xunjia').hide();
+
+						$('#fbtn').show();
+					},
+					toArtist(index) {
+						this.goods_index = index;
+						$('#box').hide();
+						$('#box2').show();
+						
+						
+					},
+					
+					toMain() {
+						$('#box2,#box3').hide();
+						$('#box').show();
+					},
+					getArtist(cat_id) {
+
+						$.ajax({
+
+							type: 'get',
+
+							url: '/artist_detailApi',
+
+							data: {
+								cat_id: cat_id
+							},
+
+							dataType: 'json', //跨域请求
+							success: function(data) {
+								vm.list = data;
+								$('#box').hide();
+								$('#box3').show();
+							},
+
+
+						})
+					},
+					search_api() {
+
+						$.ajax({
+
+							type: 'get',
+
+							url: '/searchApi',
+
+							data: {
+								search: vm.search
+							},
+
+							dataType: 'json', //跨域请求
+							success: function(data) {
+								vm.list.artistlist = data.artistData[0];
+								vm.list.goods = data.goods;
+
+								console.log(vm.list)
+								$('#box').hide();
+								$('#box2').show();
+								if (data.artistData[0] == undefined) {
+									var telphone = prompt('数据更新中。。。咨询客服直接获取资料');
+									var demand = ['咨询名师'];
+									demand = JSON.stringify(demand);
+									$.ajax({
+								
+										type: 'post',
+								
+										url: 'https://www.zishajyw.com/pot_add',
+								
+										data: {
+											'telphone': telphone,
+											'demand': demand
+										},
+								
+										dataType: 'json', //跨域请求
+								
+										success: function(data) {
+								
+											layer.msg('提交成功', {
+												icon: 6,
+												time: 2000
+											})
+								
+										},
+								
+										error: function() {
+								
+											layer.close(layer.index);
+								
+											layer.msg('提交成功', {
+												icon: 6,
+												time: 2000
+											})
+								
+										}
+								
+									})
+								}
+
+							},
+
+
+						})
+					}
+
+
+				},
+				created() {
+					this.getArtist(228)
+					this.toMain()
+				},
+				mounted() {
+					this.lazyload();
+				}
+			})
+
+
+			$.ajax({
+
+				type: 'get',
+
+				url: '/artistApi',
+
+				data: {},
+
+				dataType: 'json', //跨域请求
+				success: function(data) {
+					vm.artist = data[0].cat_two[0].cat_three.slice(0, 6);
+					//console.log(vm.artist)
+
+				},
+
+
+			})
+
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			function telphone2() {
+
+				const telphone = $("#xjTel").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) === false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+					const artist = vm.submit_information.artist_name || '';
+					const goods = vm.submit_information.goods_name || '';
+					const capacity = vm.submit_information.capacity || vm.submit_information;
+					var demand = [artist, goods, capacity];
+					demand = JSON.stringify(demand)
+					console.log(demand)
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json', //跨域请求
+
+						success: function(data) {
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						}
+
+					})
+
+
+
+				}
+
+			}
+
+			$(function() {
+				//$('.details').attr('href', 'tel:‭19821607323‬').text('限时优惠礼包 快速领取');
+				$('.partner').text('©郑州码卓信息科技有限公司 版权所有');
+			 
+				function telphone() {
+
+					const telphone = $("#telphone1").val();
+
+					var regCode = /^1\d{10}$/;
+
+					if (regCode.test(telphone) == false) {
+
+						layer.close(layer.index);
+
+						layer.msg('请输入您的手机号,手机号码不正确', {
+							icon: 5,
+							time: 1000
+						})
+
+						return false;
+
+					} else {
+
+						var demand = [];
+
+						$('input[name = demand]:checked').each(function() {
+
+							demand.push($(this).val());
+
+						})
+
+						demand = JSON.stringify(demand);
+
+						$.ajax({
+
+							type: 'post',
+
+							url: 'https://www.zishajyw.com/pot_add',
+
+							data: {
+								'telphone': telphone,
+								'demand': demand
+							},
+
+							dataType: 'json', //跨域请求
+
+							success: function(data) {
+
+								/*console.log(data);
+		
+										layer.close(layer.index);
+		
+										if(data.code == 0){
+		
+											layer.msg('提交成功',{icon:6,time:2000})
+		
+										}else{
+		
+											layer.msg('提交失敗',{icon:5,time:2000})
+		
+										}*/
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							},
+
+							error: function() {
+
+								layer.close(layer.index);
+
+								//layer.msg('提交失敗',{icon:5,time:2000});
+
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							}
+
+						})
+
+					}
+
+				}
+
+				$('.confirm').click(function() {
+
+					layer.load();
+
+					telphone();
+
+				})
+
+
+			
+
+			})
+		</script>
+
+
+	</body>
+
+</html>

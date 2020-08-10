@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+
+		<title>宜兴紫砂壶官网</title>
+
+		<link rel="shortcut icon" href="img/banner/tea.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/5.3.8/css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/cc9cbb9d0dd6b9ab414a.css" />
+		<link rel="stylesheet" type="text/css" href="css/7c37c1f9cd04d16fbfdb.css" />
+		<link rel="stylesheet" type="text/css" href="css/5821d16a615f997c7cbf.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/artist_pot.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+		<!-- https://new.6jmtr3u.cn/ 360-->
+		<script>
+			(function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
+					b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
+					s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefore(s,g)
+					})(window,document,"script","_qha",341098,false);
+		</script>
+		<!--http://zsh.9daymall.cn/ 搜狗-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?d5e2c6f940d09e63f14cd8511afe031f";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+
+		<div id="app" v-cloak>
+			<div id="box" style="display: block;">
+				<!-- 搜索弹窗 -->
+				<div data-v-87207564="" class="search_navbar">
+					<div data-v-87207564="" class="search_container">
+						<input data-v-87207564="" v-model="search" class="search—input" type="search" name="search" maxlength="20"
+						 placeholder="输入名师名称搜索">
+					</div>
+					<button data-v-87207564="" class="searchBtn" @click="search_api()">立即搜索</button>
+				</div>
+				<section>
+					<div class="swiper-container swiper-container-initialized swiper-container-horizontal">
+						<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+							<div class="swiper-slide swiper-slide-active" style="width: 100%;"><a href="javascript:;"> <img src="img/banner/banner6.jpg">
+								</a></div>
+							<div class="swiper-slide swiper-slide-next" style="width: 100%;"><a href="javascript:;"> <img src="img/banner/banner7.jpg">
+								</a></div>
+							<div class="swiper-slide" style="width: 100%;"><a href="javascript:;"> <img src="img/banner/banner8.jpg"> </a></div>
+							<div class="swiper-slide" style="width: 100%;"><a href="javascript:;"> <img src="img/banner/banner5.jpg"> </a></div>
+							<div class="swiper-slide swiper-slide-prev" style="width: 100%;"><a href="javascript:;"> <img src="img/banner/banner4.jpg">
+								</a></div>
+						</div>
+						<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active"
+							 tabindex="0" role="button" aria-label="Go to slide 1" style="background: white;"></span><span class="swiper-pagination-bullet"
+							 tabindex="0" role="button" aria-label="Go to slide 2" style="background: white;"></span><span class="swiper-pagination-bullet"
+							 tabindex="0" role="button" aria-label="Go to slide 3" style="background: white;"></span><span class="swiper-pagination-bullet"
+							 tabindex="0" role="button" aria-label="Go to slide 4" style="background: white;"></span><span class="swiper-pagination-bullet"
+							 tabindex="0" role="button" aria-label="Go to slide 5" style="background: white;"></span></div><span class="swiper-notification"
+						 aria-live="assertive" aria-atomic="true"></span>
+					</div>
+				</section>
+				<div class="goods_list mt10">
+					<div class="goods_container" v-for="item in artist">
+						<img alt="" :src="item.image.replace(/http/g, 'https')" class="goods_limit">
+						<div class="goods_header">
+							<div class="goods_name">姓名：{{item.cat_name}}</div>
+							<div class="goods_zc">职称：{{item.position}}</div>
+							<button class="consult2" @click="getArtist(item.cat_id)">代表作品</button>
+						</div>
+					</div>
+				</div>
+				<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+
+					<p class="partner">
+						<!-- 微信号：sangebeike0123123<br> -->
+						©宜宾惠人电子商务有限公司 版权所有<br>
+					</p>
+				</footer>
+				<footer class="foot mt30 pr">
+					<div id="fbtn" style="display: none">
+						<div class="full-gift" data-clipboard-text="sangebeike0123123">
+							<span>微信客服</span>
+
+						</div>
+						<a href="tel:‭19821607323‬" class="details" style="">电话客服</a>
+					</div>
+					<div class="foot-xunjia receive">
+						<div class="inquiry  ">
+							<h2 class="taozhuang">数据更新中...咨询客服直接获取资料</h2>
+							<div class="cell-input">
+								<input name="telphone" id="telphone1" placeholder="请输入手机号">
+								<div id="mbtn" class="confirm" @click="receive()">
+									获取资料
+								</div>
+							</div>
+							<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+						</div>
+						<div class="footer-k" @click="close()"> </div>
+					</div>
+				</footer>
+				<div style="width: 100%;height: 6rem"> </div>
+
+			</div>
+
+
+			<div id="box2" style="display: none;">
+				<div class="van-nav-bar van-hairline--bottom" style=" font-size: 16px;height: 50px; z-index:1;" data-v-d09b833a=""
+				 data-v-cb1d9996="">
+					<div class="van-nav-bar__left" data-v-d09b833a="" style="font-size: 16px;height: 50px;line-height: 50px;" @click="toMain()">
+						<i class="van-icon van-icon-arrow-left van-nav-bar__arrow" data-v-d09b833a="" style="font-size: 18px;"></i>
+						<span class="van-nav-bar__text" data-v-d09b833a="">返回</span>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_header">
+					<img alt="" data-v-0c97a771="" :src="list.artistlist.img.replace(/http/g, 'https')" class="avatar">
+					<div data-v-0c97a771="" class="artist_info"><b data-v-0c97a771="" style="font-size: 22px; color: #5B3A31;">{{list.artistlist.cat_name}}</b>
+						<p data-v-0c97a771="" class="artist_zc">{{list.artistlist.position}}</p>
+					</div>
+				</div>
+				<div data-v-0c97a771="" class="artist_des_container">
+					<div data-v-0c97a771="" class="artist_des" style="height: auto;">
+						<div data-v-0c97a771="">
+							<p style="text-indent: 1em;">
+								<span>
+									{{list.artistlist.description}}
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<section class="mt15">
+					<img src="img/pot/inquiry_15.jpg" class="lazy" data-original="">
+
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="item in list.goods.slice(0, 4)">
+							<img alt="" :src="item.img.replace(/http/g, 'https')" class="goods_limit">
+							<div class="goods_header">
+								<span class="goods_name" style="width: 100%;">{{item.name}}</span>
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2="">作者:{{item.people_name}} </span> <span data-v-217ef9e2="">泥料：{{item.mud_name}}</span>
+									<span data-v-217ef9e2="" style="width: 100%;">容量:{{item.capacity_name}}</span>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item.name)">点击询价</button>
+						</div>
+
+					</div>
+
+					<div style="width: 100%;height: 6rem"> </div>
+
+				</section>
+				<footer class="foot mt30 pr">
+					<div id="fbtn"><a href="tel:‭13524312680‬" class="details" style="width: 100%;">快速咨询，客服一对一服务 </a></div>
+					<div class="foot-xunjia">
+						<div class="inquiry">
+							<div id="damand"> 咨询【{{goods_name}}】价格</div> <input type="text" placeholder="请输入手机号码" autofocus="autofocus"
+							 value="" name="xjTel" id="xjTel" maxlength="11" class="shouji yu_zi_xun">
+							<button @click="onClickXunjia()">点击提交</button>
+							<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+						</div>
+
+						<div class="footer-k" @click="close()"> </div>
+					</div>
+				</footer>
+
+			</div>
+
+
+		</div>
+
+		<template id="artist_detail">
+			<main>
+
+			</main>
+
+
+		</template>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-router/3.1.3/vue-router.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/5.3.8/js/swiper.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="js/do.js" type="application/javascript"></script>
+
+		<script>
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					search: '',
+					goods_name: '邵美华',
+					goods_index: 0,
+					artist: [],
+					list: []
+				},
+				methods: {
+					lazyload() {
+						$(".lazy").lazyload({
+							threshold: 200, //设置临界点
+							effect: "fadeIn", //使用特效
+							failure_limit: 20, //当图片不连续时,通过 failurelimit 选项来控制加载行为.
+							skip_invisible: false //加载隐藏图片
+						});
+					},
+
+					inquiry(name) {
+						console.log(name)
+						this.goods_name = name;
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+					},
+					onClickXunjia() {
+						layer.load();
+
+						telphone2();
+						this.close()
+
+					},
+					close() {
+						$('.footer-k,.foot-xunjia').hide();
+
+						$('#fbtn').show();
+					},
+					toArtist(index) {
+						this.goods_index = index;
+						$('#box').hide();
+						$('#box2').show();
+					},
+					toMain() {
+						$('#box2').hide();
+						$('#box').show();
+					},
+					getArtist(cat_id) {
+
+						$.ajax({
+
+							type: 'get',
+
+							url: '/artist_detailApi',
+
+							data: {
+								cat_id: cat_id
+							},
+
+							dataType: 'json',
+							success: function(data) {
+								vm.list = data;
+								$('#box').hide();
+								$('#box2').show();
+							},
+
+
+						})
+					},
+					search_api() {
+
+						$.ajax({
+
+							type: 'get',
+
+							url: '/searchApi',
+
+							data: {
+								search: vm.search
+							},
+
+							dataType: 'json',
+							success: function(data) {
+
+								if (data.artistData[0] == undefined) {
+									$('.footer-k,.receive').show();
+
+									$('.receive').stop().animate({
+
+										bottom: 0
+
+									}, 200);
+
+									$('#fbtn').hide();
+
+								} else {
+									vm.list.artistlist = data.artistData[0];
+									vm.list.goods = data.goods;
+
+									$('#box').hide();
+									$('#box2').show();
+								}
+
+							},
+
+
+						})
+					},
+					receive() {
+						layer.load();
+
+						telphone();
+					},
+					_initSwiper() {
+						console.log('swiper')
+						const mySwiper = new Swiper('section .swiper-container', {
+							autoplay: {
+								delay: 5000,
+							}, //自动滑动，5秒切换一次
+							effect: 'slide', //滑动效果
+							touchAngle: 30, //滑动的角度超过30度无效
+							// 轮播图的方向，也可以是vertical方向
+							direction: 'horizontal',
+							//环形切换关闭
+							loop: true,
+							// 切换的速度
+							speed: 800, //滑动或者自动换页时的速度
+							observer: true,
+							observerParents: true,
+							// 如果需要分页器
+							pagination: {
+								el: 'section .swiper-pagination',
+								clickable: true,
+								type: 'bullets',
+							},
+							// 这样，即使我们滑动之后， 定时器也不会被清除
+							autoplayDisableOnInteraction: true
+						});
+					}
+
+
+				},
+				created() {
+					this.getArtist(228);
+					this.toMain();
+					$('.details').attr('href', 'tel:‭13524312680‬').text('电话客服');
+					$('.partner').text('©宜宾惠人电子商务有限公司 版权所有');
+				},
+				mounted() {
+					this.lazyload();
+				}
+			})
+
+
+			$.ajax({
+
+				type: 'get',
+
+				url: '/artistApi',
+
+				data: {},
+
+				dataType: 'json', //跨域请求
+				success: function(data) {
+					vm.artist = data[0].cat_two[0].cat_three.slice(0, 6);
+					console.log(vm.artist)
+
+				},
+
+
+			})
+
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			function telphone2() {
+
+				const telphone = $("#xjTel").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) === false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+
+					var demand = [];
+					demand.push($('#damand').text().trim());
+					demand = JSON.stringify(demand)
+					console.log(demand)
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json', //跨域请求
+
+						success: function(data) {
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						}
+
+					})
+
+
+
+				}
+
+			}
+
+			function telphone() {
+
+				const telphone = $("#telphone1").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) === false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+					$('.footer-k,.receive').hide();
+
+					$('#fbtn').show();
+
+					var demand = [vm.search];
+
+					demand = JSON.stringify(demand);
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json',
+
+						success: function(data) {
+
+
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							//layer.msg('提交失敗',{icon:5,time:2000});
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						}
+
+					})
+
+				}
+
+			}
+
+			$(function() {
+				const imgsMobile = [{
+
+					"src": "banner6.jpg",
+
+
+					"href": "javascript:;"
+
+				}, {
+
+					"src": "banner7.jpg",
+
+
+					"href": "javascript:;"
+
+				}, {
+
+					"src": "banner8.jpg",
+
+					"href": "javascript:;"
+				}, {
+
+					"src": "banner5.jpg",
+
+					"href": "javascript:;"
+
+				}, {
+
+					"src": "banner4.jpg",
+
+					"href": "javascript:;"
+
+				}];
+
+
+
+
+
+
+
+
+
+
+				let tupian = "";
+
+				for (let i of imgsMobile) {
+
+					tupian += '<div class="swiper-slide"><a href="' + i.href + '"> <img src = "img/banner/' + i.src +
+						'" > </a></div>';
+
+				};
+
+				$("section .swiper-wrapper").html(tupian);
+
+
+
+				const mySwiper = new Swiper('section .swiper-container', {
+					autoplay: {
+						delay: 5000,
+					}, //自动滑动，5秒切换一次
+					effect: 'slide', //滑动效果
+					touchAngle: 30, //滑动的角度超过30度无效
+					// 轮播图的方向，也可以是vertical方向
+					direction: 'horizontal',
+					//环形切换关闭
+					loop: true,
+					// 切换的速度
+					speed: 800, //滑动或者自动换页时的速度
+					// 如果需要分页器
+					pagination: {
+						el: 'section .swiper-pagination',
+						clickable: true,
+						type: 'bullets',
+					},
+					// 这样，即使我们滑动之后， 定时器也不会被清除
+					autoplayDisableOnInteraction: true
+				});
+
+				// 复制文本内容
+				var copyBtn = new ClipboardJS('.full-gift');
+
+				copyBtn.on("success", function(e) {
+					// 复制成功
+					alert('复制sangebeike0123123成功,即将打开微信!');
+					e.clearSelection();
+					window.location.href = 'weixin://';
+				});
+				copyBtn.on("error", function(e) {
+					//复制失败；
+					console.log(e.action)
+				});
+
+				//弹出二维码
+				/*	$('activities,.weixin,.consult2').click(function() {
+						$('.full-gift span').text('点击复制微信号');
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+					})
+
+
+					// 切换微信号和二维码
+					const dataWeixin = [
+						[{
+							"src": "code_01.jpg",
+							"wechat_number": 'CHENKEKE556688'
+						}],
+						[{
+							"src": "code_02.jpg",
+							"wechat_number": 'DAPENG68730'
+						}],
+						[{
+							"src": "code_03.jpg",
+							"wechat_number": 'WXID263526'
+						}],
+						[{
+							"src": "code_04.jpg",
+							"wechat_number": 'jiasuo7015'
+						}],
+						[{
+							"src": "code_05.jpg",
+							"wechat_number": 'xby497'
+						}],
+						[{
+							"src": "code_06.jpg",
+							"wechat_number": 'LIU1126589'
+						}]
+					];
+
+					let index = Math.ceil(Math.random() * 5);
+					// move();
+					// console.log(index)
+
+					function move() {
+						index = index > 5 ? 0 : index;
+						$('.code img').attr('src', 'img/' + dataWeixin[index][0].src);
+						$('.full-gift').attr('data-clipboard-text', dataWeixin[index][0].wechat_number);
+						$('.wechat_number,.weixin').text(dataWeixin[index][0].wechat_number);
+						$('.weixin').css({
+							'letter-spacing': '2px',
+							'font-size': '1.5rem'
+						})
+						if (index == 0 || index == 1) {
+							$('.weixin').css({
+								'letter-spacing': 0,
+								'font-size': '1.2rem'
+							})
+						}
+					};
+
+					function getTime() {
+						const time = new Date();
+						const m = time.getMinutes();
+						console.log(m)
+						if (m == 10) {
+							index++;
+							move();
+						}
+
+					}
+					// const timeInterval = setInterval(function() {
+					// 	getTime()
+					// }, 1000 * 58);*/
+
+
+
+
+
+
+			})
+		</script>
+
+
+	</body>
+
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="紫砂壶周边推荐，紫砂壶周边购买，茶叶，宜兴紫砂壶，紫砂壶中天">
+		<meta name="description" content="紫砂壶中天是专业的紫砂壶门户网站，从事紫砂壶相关服务已有十多年，旨在服务各位壶友，提供具有特色的宜兴紫砂壶购买、收藏与投资等服务">
+		<meta name="copyright" content="紫砂壶中天">
+		<title>宜兴紫砂壶_紫砂壶中天</title>
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_head.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_list.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_tk-style.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/css/fxss-autoSelectSearch.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/css/p_w_pages.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/lib/swiper/c_swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="https://www.layuicdn.com/layui/css/layui.css" />
+		<style type="text/css">
+			#jumpMenu {
+				width: 45px;
+				text-align: center;
+			}
+		</style>
+		
+
+		<script src="__PC__/lib/jquery/jquery.js"></script>
+		<script src="__PC__/lib/babel/browser-polyfill.min.js"></script>
+		<script src="__PC__/lib/babel/browser.min.js"></script>
+	</head>
+	<body>
+		<main id="app">
+			<!-- LOGO 标题 搜索 -->
+			{include file="public/header" /}
+
+			<div class="w">
+				<!-- 面包屑 -->
+				<div class="curAt">
+					<a href="/pc_index">壶中天</a> 〉
+					<span>紫砂藏品搜索</span>
+				</div>
+
+				<!-- 搜索区 -->
+
+				<div class="searchArea clearfix">
+					<!-- 左侧 -->
+					<p class="searchText">搜索</p>
+
+					<form method="get" style="display: inline-block" class="layui-form" action="/pc_selectApi">
+
+						<div class="layui-form-item">
+							<div class="layui-input-inline">
+								<select name="mud_id" lay-search>
+									<option value="">选择泥料</option>
+									{volist name="catlist" id="vo"}
+									{if $vo.is_mud == "1"}
+									{volist name="$vo.cat_two" id="vv"}
+									<option value="{$vv.cat_id}">{$vv.cat_name}</option>
+									{/volist}
+									{/if}
+									{/volist}
+
+								</select>
+							</div>
+
+							<div class="layui-input-inline">
+								<select name="shape_id" lay-search>
+									<option value="">选择壶型</option>
+									{volist name="catlist" id="vo"}
+									{if $vo.is_shape == "1"}
+									{volist name="$vo.cat_two" id="vv"}
+									<option value="{$vv.cat_id}">{$vv.cat_name}</option>
+									{/volist}
+									{/if}
+									{/volist}
+								</select>
+							</div>
+
+							<div class="layui-input-inline">
+								<select name="capacity_id" lay-search>
+									<option value="">选择容量</option>
+									{volist name="catlist" id="vo"}
+									{if $vo.is_capacity == "1"}
+									{volist name="$vo.cat_two" id="vv"}
+									{volist name="$vv.cat_three" id="vvv"}
+									<option value="{$vvv.cat_id}">{$vvv.cat_name}</option>
+									{/volist}
+									{/volist}
+									{/if}
+									{/volist}
+								</select>
+							</div>
+
+
+
+							<div class="layui-input-inline">
+								<select name="ambitus_id" lay-search>
+									<option value="">选择周边</option>
+									{volist name="catlist" id="vo"}
+									{if $vo.is_ambitus == "1"}
+									{volist name="$vo.cat_two" id="vv"}
+									{volist name="$vv.cat_three" id="vvv"}
+									<option value="{$vvv.cat_id}">{$vvv.cat_name}</option>
+									{/volist}
+									{/volist}
+									{/if}
+									{/volist}
+								</select>
+							</div>
+
+
+							<div class="layui-input-inline">
+								<select name="tealeaf_id" lay-search>
+									<option value="">选择茶叶</option>
+									{volist name="catlist" id="vo"}
+									{if $vo.is_tealeaf == "1"}
+									{volist name="$vo.cat_two" id="vv"}
+									{volist name="$vv.cat_three" id="vvv"}
+									<option value="{$vvv.cat_id}">{$vvv.cat_name}</option>
+									{/volist}
+									{/volist}
+									{/if}
+									{/volist}
+								</select>
+							</div>
+
+
+							<button type="submit" class="searchBtn">搜索</button>
+							<!--							<a type="button" class="resetBtn" href="javascript:;" onclick="$('.autoSelectSearch-input').val('')">重置</a>-->
+						</div>
+
+						<!--						<div class="autoSelectSearch-box js-autoSelectSearch-box">-->
+						<!--							<input class="autoSelectSearch-input js-autoSelectSearch-input" type="text" id="selectNiliao" autocomplete="off"-->
+						<!--							 placeholder="输入泥料" name="mud_id" value="">-->
+						<!--							<ul class="autoSelectSearch-optionBox js-autoSelectSearch-optionBox" style="display: none; top: 36px; bottom: inherit;">-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="0" data-text="请选择">请选择</li>-->
+						<!--								<li class="js-autoSelectSearch-option autoSelectSearch-optionChoiced js-option-choiced" data-label="58"-->
+						<!--								 data-text="原矿紫泥">原矿紫泥</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="59" data-text="原矿底槽青" data-spell="yuankuangdicaoqing"-->
+						<!--								 data-simplespell="ykdcq">原矿底槽青</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="60" data-text="原矿清水泥" data-spell="yuankuangqingshuini"-->
+						<!--								 data-simplespell="ykqsn">原矿清水泥</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="61" data-text="天青泥" data-spell="tianqingni" data-simplespell="tqn">天青泥</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="62" data-text="五色土" data-spell="wusetu" data-simplespell="wst">五色土</li>-->
+						<!--							</ul>-->
+
+						<!--							<i class="autoSelectSearch-caret js-autoSelectSearch-caret"></i>-->
+						<!--						</div>-->
+
+						<!--						<div class="autoSelectSearch-box js-autoSelectSearch-box">-->
+						<!--							<input class="autoSelectSearch-input js-autoSelectSearch-input" type="text" id="selectHuxing" autocomplete="off"-->
+						<!--							 placeholder="输入壶型" name="shape_id" value="">-->
+						<!--							<ul class="autoSelectSearch-optionBox js-autoSelectSearch-optionBox">-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="0" data-text="请选择">请选择</li>-->
+						<!--								<li class="js-autoSelectSearch-option autoSelectSearch-optionChoiced js-option-choiced" data-label="58" data-text="曲壶">曲壶</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="59" data-text="园壶">园壶</li>-->
+						<!--							</ul>-->
+						<!--							<i class="autoSelectSearch-caret js-autoSelectSearch-caret"></i>-->
+						<!--						</div>-->
+
+						<!--						<div class="autoSelectSearch-box js-autoSelectSearch-box">-->
+						<!--							<input class="autoSelectSearch-input js-autoSelectSearch-input" type="text" id="selectRongliang"-->
+						<!--							 readonly="" autocomplete="on" placeholder="选容量" name="capacity_id" value="">-->
+						<!--							<ul class="autoSelectSearch-optionBox js-autoSelectSearch-optionBox">-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="0" data-text="请选择">请选择</li>-->
+						<!--								<li class="js-autoSelectSearch-option autoSelectSearch-optionChoiced js-option-choiced" data-label="58" data-text="100cc">100cc</li>-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="59" data-text="200cc">200cc</li>-->
+						<!--							</ul>-->
+						<!--							<i class="autoSelectSearch-caret js-autoSelectSearch-caret"></i>-->
+						<!--						</div>-->
+
+
+						<!--						<div class="autoSelectSearch-box js-autoSelectSearch-box">-->
+						<!--							<input class="autoSelectSearch-input js-autoSelectSearch-input" type="text" id="selectZhuti" readonly=""-->
+						<!--							 autocomplete="on" placeholder="选主题" name="theme_id" value="">-->
+						<!--							<ul class="autoSelectSearch-optionBox js-autoSelectSearch-optionBox">-->
+						<!--								<li class="js-autoSelectSearch-option" data-label="0" data-text="请选择">请选择</li>-->
+						<!--								<li class="js-autoSelectSearch-option autoSelectSearch-optionChoiced js-option-choiced" data-label="58" data-text="茶宠">茶宠</li>-->
+						<!--							</ul>-->
+						<!--							<i class="autoSelectSearch-caret js-autoSelectSearch-caret"></i>-->
+						<!--						</div>-->
+
+
+
+
+					</form>
+
+				</div>
+
+				<!-- 产品列表 -->
+				<ul class="nProList clearfix">
+					<!-- 循环li -->
+					{volist name="newgoods" id="vo"}
+					<li>
+						<a href="/pc_goodsinfo?goodsid={$vo.id}" class="nPro-img">
+							<img src="{$vo.img|str_replace='http','https',###}">
+						</a>
+
+						<dl class="nPro-detail clearfix">
+							<dd class="nPro-title">
+								<a href="/pc_goodsinfo?goodsid={$vo.id}">{$vo.name}</a>
+							</dd>
+							<dd class="nPro-do">
+								<a href="javascript:void(0)" class="xjBtn xuan" onclick="all_zixun_price('{$vo.goods_no}','{$vo.name}','{$vo.people_name}','{$vo.capacity_name}')">点击询价</a>
+							</dd>
+							<dd>作者：<a href="javascript:void(0)">{$vo.people_name}</a></dd>
+							<dd>编号：<a href="javascript:void(0)">{$vo.goods_no}</a></dd>
+							<dd>泥料：<a href="javascript:void(0)">{$vo.mud_name}</a></dd>
+							<dd>容量：<a href="javascript:void(0)">{$vo.capacity_name}</a></dd>
+						</dl>
+					</li>
+					{/volist}
+				</ul>
+
+
+
+				{$newgoods|raw}
+				<!--				<div class="pageBox">-->
+				<!--					<div class="pages" id="pageid">-->
+				<!--						<ul>-->
+				<!--							<li><a href="javascript:void(0)" class="thisclass"><strong>1</strong></a></li>-->
+				<!--							<li><a href="" class="">2</a></li>-->
+				<!--							<li><a href="" class="">3</a></li>-->
+				<!--							<li><a href="" class="">4</a></li>-->
+				<!--							<li><a href="" class="">5</a></li>-->
+				<!--							<li><a href="category.html?page=6" class="">6</a></li>-->
+				<!--							<li><a href="" class="topclass">下一页&gt;</a></li>-->
+				<!--							<li><span class="pageinfo">共 <strong>10</strong> 页</span></li>-->
+				<!--							<li>跳转：第 &lt;!&ndash; <select name="jumpMenu" id="jumpMenu" onchange="jumpMenu('parent',this,0)" class="xiala"> &ndash;&gt;-->
+				<!--								<input type="text" id="jumpMenu" value="1" onchange="jumpMenu()">-->
+				<!--							  页</li>-->
+				<!--						</ul>-->
+				<!--					</div>-->
+				<!--				</div>-->
+
+			</div>
+
+		</main>
+
+		{include file="public/footer" /}
+		<script src="__PC__/lib/vue/vue.min.js"></script>
+		<script src="https://www.layuicdn.com/layui/layui.js"></script>
+		<script src="__PC__/js/common.js"></script>
+
+		<script type="text/javascript">
+			layui.use(['form'], function() {
+				var form = layui.form;
+			});
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			// console.log({php}echo count($newgoods->toArray()); {/php}=='')
+
+			if ($('.nProList li').length == 0) {
+				$('.receive').show();
+				$('#bigbodybg').show();
+				
+			}
+			
+			$('.information').click(function () {
+				const search = decodeURI(getQueryVariable("search"));
+				telphone(search);
+				
+			})
+
+			function getQueryVariable(variable) {
+
+				var query = window.location.search.substring(1);
+
+				var vars = query.split("&");
+
+				for (var i = 0; i < vars.length; i++) {
+
+					var pair = vars[i].split("=");
+
+					if (pair[0] == variable) {
+
+						return pair[1];
+
+					}
+
+				}
+
+				return (false);
+
+			}
+
+
+			function telphone(search) {
+
+				const telphone = $("#telphone").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) == false) {
+
+					$('.xl-tc-con').hide();
+					$('.xl_tip_false').show();
+
+					return false;
+
+				} else {
+					$('.xl-tc-con').hide();
+
+					var demand = [search];
+
+					demand = JSON.stringify(demand);
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json',
+
+						success: function(data) {
+
+							$('.xl_tip_true').show();
+
+						},
+
+						error: function() {
+							$('.xl_tip_true').show();
+
+						}
+
+					})
+
+				}
+
+			}
+		</script>
+	</body>
+</html>

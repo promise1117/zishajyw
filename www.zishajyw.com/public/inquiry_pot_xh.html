@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+
+		<title>宜兴紫砂壶官网</title>
+
+		<link rel="shortcut icon" href="img/banner/tea.ico" type="image/x-icon">
+
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.0/css/swiper.min.css">
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="css/inquiry_pot.css" />
+		<link rel="stylesheet" type="text/css" href="css/turntable.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?7a1e9d1b8f8de99945c345d3250bfddb";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			<header>
+
+				<img src="img/pot/inquiry_01.jpg">
+
+			</header>
+			<header>
+
+				<img src="img/pot/inquiry_001.jpg">
+
+			</header>
+		
+
+			<main class="mt20 pr">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_03.jpg">
+
+			</main>
+
+			<main class="mt15">
+				<ul class="boutique">
+					<li :class="{active:item.flag}" v-for="(item,index) in list" @click="toggleClass(item,index)">
+						{{item.name}}
+					</li>
+				</ul>
+				<div class="goods_list">
+					<div class="goods_container" v-for="(item,index) in goods[goods_index]">
+						<img alt="" class="goods_limit" :src="item.img"  @click="details(index)">
+						<div class="goods_header">
+							<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+							<div data-v-217ef9e2="" class="goods_info">
+								<span data-v-217ef9e2="">作者:{{item.artist_name}}</span><span data-v-217ef9e2="">职称:{{item.title}} </span>
+								<span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span><span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+							</div>
+						</div>
+						<button class="consult2" @click="inquiry(item)">点击询价</button>
+					
+					</div>
+					<!-- <div class="goods_container">
+						<img alt="" class="goods_limit" src="img/pot/clay_02.jpg">
+						<div class="goods_header">
+							<span class="goods_name" style="width: 48%;">斑竹提梁</span>
+							<button class="consult2">马上抢购</button>
+						</div>
+					</div> -->
+				</div>
+
+			</main>
+
+			<div class="click_to_consult"  @click=" window.location.href='/' ">
+				<span>没有喜欢壶型 获取更多产品</span>
+				<img src="img/collection/click.png" class="click">
+			</div>
+			
+			<div class="turntable mt40">
+					<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/turntable/luck_draw.jpg">
+					
+					<div class="choujiang">
+						<a id="plateBtn" href="javascript:" title="开始抽奖">开始抽奖</a>
+					</div>
+
+					<div id="rule" style="display: block; margin-top:10px;">
+						<div>
+							<!-- <h2>限时抽奖</h2> -->
+							<p>
+								<span>1.每人有一次免费抽奖机会，填写手机号可获得额外一次抽奖机会。</span><br>
+								<span>2.中奖奖项仅可选择一项使用，不能重复使用。</span><br>
+								<span>3.所中奖项在购买本店任意紫砂产品时均可使用（符合使用条件前提下）。</span><br>
+								<span>4.本活动不与店内其他特惠、秒杀活动共享。</span><br>
+							</p>
+						</div>
+					</div>
+					
+					<div class="content">
+						<div id="mask_awards" class="mask" style="display: none;" onclick="closePrize()"></div>
+						<div id="awards" style="display: none; margin-top: 0px;">
+							<div>
+								<h3 id="title_h">恭喜你获得</h3>
+								<input id="tel" type="text" value="请输入您的手机号码领取" maxlength="11" onclick="this.value='';focus()">
+								<a id="lingjiang" class="a_prize" href="javascript:void(0);" onclick="lingjiang();">领奖</a>
+								<a id="again" class="a_share" href="javascript:;" style="display: none;" onclick="againlingjiang()">再抽一次</a>
+								<p></p>
+							</div>
+						</div>
+					</div>
+
+					
+				</div>
+
+			<main class="mt20">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_05.jpg">
+
+			</main>
+
+			<main class="mt10">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/teapot_38.jpg">
+
+			</main>
+			<main>
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/teapot_31.jpg">
+
+			</main>
+
+			<main class="mt15">
+
+				<img @click="inquiry('更多产品',1)" src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_06.jpg">
+
+			</main>
+
+			<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+				<p class="partner">
+						©重庆乐图社文化传播有限公司 版权所有 <br>
+				</p>
+			</footer>
+			<div style="width: 100%;height: 6rem"> </div>
+
+
+
+			<footer class="foot mt30 pr">
+
+				<div id="fbtn">
+					<a href="tel:‭19821607323‬" class="details" style="width: 100%;display: none;">限时优惠礼包 快速领取</a>
+				</div>
+
+				<div class="foot-xunjia">
+					<div class="inquiry">
+						<div id="damand"> 咨询{{submit_information.artist_name}}【{{submit_information.goods_name}}】价格</div>
+						<input type="text" class="shouji" placeholder="请输入手机号码" value="" name="xjTel" id="xjTel" maxlength="11">
+						<button @click="onClickXunjia()">点击提交</button>
+						<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+					</div>
+
+					<div class="footer-k" @click="close()"> </div>
+				</div>
+
+			</footer>
+
+			<!-- 图片整屏展示 -->
+			<div class="pswp__scroll-wrap " id="swiper">
+				<div class="pswp_img swiper-container ">
+					<div class="swiper-wrapper">
+					</div>
+					<div class="custom-indicator" data-v-1c281437>
+						<span class="realIndex">1</span>/<span class="total"></span>
+					</div>
+					 
+				</div>
+			</div>
+			
+		</div>
+			
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script src="js/jquery.rotate.min.js"></script>
+		<script src="js/inquiry_pot.js"></script>
+		<script src="js/turntable.js"></script>
+		<script src="js/do.js" type="application/javascript"></script>
+
+	</body>
+
+</html>

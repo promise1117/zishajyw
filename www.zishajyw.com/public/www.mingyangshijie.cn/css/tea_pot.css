@@ -1,0 +1,519 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+a {
+	color: #2c2c2c;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+input::-webkit-input-placeholder {
+	color: #ACACAC;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 500;
+}
+
+.mt5 {
+	margin-top: 0.41rem;
+}
+
+.mt10 {
+	margin-top: 0.83rem;
+}
+
+.mt15 {
+	margin-top: 1.25rem;
+}
+
+.mt20 {
+	margin-top: 1.66rem;
+}
+
+.mt25 {
+	margin-top: 2.08rem;
+}
+
+.mt30 {
+	margin-top: 2.5rem;
+}
+
+.mt50 {
+	margin-top: 4.16rem;
+}
+
+.mt100 {
+	margin-top: 8.33rem;
+}
+
+.tc {
+	text-align: center;
+}
+
+.pb5 {
+	padding-bottom: 0.41rem;
+}
+
+.pt5 {
+	padding-top: 0.41rem;
+}
+
+.pr {
+	position: relative;
+}
+
+.lang-price {
+	font-family: Verdana;
+}
+
+.fl {
+	float: left;
+}
+
+.hidden {
+	display: none;
+}
+
+
+#box {
+	width: 100%;
+	max-width: 1500px;
+	margin: auto;
+	background: #F6F2E9;
+}
+
+header {
+	width: 100%;
+
+}
+
+section {
+	width: 100%;
+
+}
+
+.consult {
+	width: 100%;
+	padding: 1rem 0;
+	background: #730100;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.code {
+	width: 46%;
+	height: auto;
+	text-align: center;
+	margin: auto;
+}
+
+.code img {
+	width: 60%;
+}
+
+.code h4 {
+	margin-top: 0.5rem;
+	font-size: 1.33rem;
+	color: white;
+	/* overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap; */
+	display: flex;
+	flex-direction: column;
+}
+
+.price {
+	width: 54%;
+	color: #f8ce7a;
+	text-align: left;
+	font-weight: 700;
+}
+
+.price h1 {
+	width: 100%;
+	font-size: 2.2rem;
+	color: white;
+}
+
+.price h2 {
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1.4rem;
+	margin-top: 0.6rem;
+
+}
+
+.price h2 span {
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: white;
+	display: inline-block;
+	position: relative;
+	top: -10%;
+
+}
+
+.price h4 {
+	width: 100%;
+	height: 2.2rem;
+	line-height: 2.2rem;
+	font-size: 1.4rem;
+}
+
+.price h4 span {
+	font-size: 1.8rem;
+	color: white;
+	display: inline-block;
+	font-weight: 500;
+	position: relative;
+	top: -12%;
+}
+
+.telphone {
+	width: 88%;
+	position: absolute;
+	top: 16%;
+	left: 6%;
+	font-size: 1.25rem;
+}
+
+.activities {
+	width: 94%;
+	height: 3.33rem;
+	border-radius: 0.83rem;
+	background: #C00B00;
+	color: white;
+	font-size: 1.5rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.telphone {
+	width: 88%;
+	position: absolute;
+	top: 16%;
+	left: 6%;
+	font-size: 1.25rem;
+}
+
+.form-group {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.cell {
+	width: 24%;
+	height: 2.5rem;
+	color: #9e5825;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cell-input {
+	width: 74%;
+	height: 2.5rem;
+	border: 1px solid #9e5825;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #FCFCFC;
+}
+
+#telphone1 {
+	width: 100%;
+	height: 90%;
+	padding: 0.5rem 1rem;
+	font-size: 1.16rem;
+}
+
+.demand {
+	width: 74%;
+	border: 1px solid #9e5825;
+	background: #FCFCFC;
+}
+
+input[type=checkbox] {
+	display: none;
+}
+
+.checkbox {
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid #9e5825;
+	margin: 0.41rem 0.66rem;
+}
+
+input[type=checkbox]:checked+label::before {
+	content: "\2714";
+	display: block;
+	color: #9e5825;
+	text-align: center;
+	line-height: 1.5rem;
+	font-size: 1.33rem;
+
+}
+
+.checkbox-label {
+	color: #9e5825;
+}
+
+.confirm {
+	width: 80%;
+	height: 6rem;
+	background: #DC5E0A;
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	margin: 2.5rem auto 0;
+	color: white;
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+main {
+	width: 100%;
+	padding: 0 1.25rem;
+	position: relative;
+}
+
+.white-click {
+	width: 2.16rem;
+	height: 2.91rem;
+	position: absolute;
+	top: 68%;
+	right: 15%;
+	-webkit-animation: masked-animation 1s infinite linear;
+}
+
+@-webkit-keyframes masked-animation {
+	0% {
+		transform: translateY(0);
+		transform: scale(1);
+	}
+
+	100% {
+		transform: translateY(-6px);
+		transform: scale(1.2);
+	}
+}
+
+
+#telphone2 {
+	width: 100%;
+	height: 90%;
+	padding: 0.5rem 1rem;
+	font-size: 1.16rem;
+}
+
+footer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 20;
+}
+
+	
+.foot{
+	max-width: 1500px;
+	margin: auto;
+	position: fixed;
+	bottom: 0;
+}
+	
+#moreser{
+	width: 100%;
+    background: #DFB680;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.3rem;
+	cursor: pointer;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#fbtn {
+	width: 100%;
+	margin: auto;
+	display: flex;
+}
+
+.full-gift {
+	width: 50%;
+	height: 5rem;
+	background: #DC5E0A;
+	font-size: 1.5rem;
+	font-weight: 500;
+	cursor: pointer;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.details {
+	width: 50%;
+	height: 5rem;
+	line-height: 5rem;
+	text-align: center;
+	background: #A00000;
+	color: #FFFFFF;
+	font-size: 1.4rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+a:hover {
+	color: #FFFFFF;
+}
+
+.details span {
+	font-size: 2.2rem;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	top: -6%;
+}
+
+.foot-xunjia {
+	width: 100vw;
+	max-width: 1500px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 20;
+}
+
+.foot-xunjia-k {
+	width: 90%;
+}
+
+#number {
+	width: 100%;
+	font-size: 1.8rem;
+	margin: 1rem 0;
+	overflow: hidden;
+}
+
+.sraj {
+	width: 100%;
+	position: relative;
+}
+
+.sraj input {
+	width: 100%;
+	height: 3.33rem;
+	line-height: 3.33rem;
+	box-sizing: border-box;
+	margin: 0.83rem auto 1.66rem;
+	padding: 0.83rem;
+	border: 1px solid #c9c9c9;
+	font-size: 1.25rem;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+}
+
+.button-k {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	line-height: 0;
+}
+
+.foot-xunjia-k button {
+	width: 100%;
+	line-height: 3.33rem;
+	font-size: 1.25rem;
+	text-align: center;
+	color: #fff;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background: #d50000;
+}
+
+.footer-k {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	position: fixed;
+	top: 0rem;
+	z-index: 11;
+	display: none;
+}
+
+.weixin {
+	width: 36%;
+	text-align: center;
+	color: #FFFFFF;
+	position: absolute;
+	right: 11%;
+	bottom: 11%;
+}
+
+.wechat_number {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.scan {
+	width: 100%;
+	font-size: 1.8rem;
+	margin: 1rem 0;
+	overflow: hidden;
+}
+
+footer[data-v-de1f1c82] {
+	color: #231815;
+	font-size: 14px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+footer a[data-v-de1f1c82] {
+	color: #ad4224;
+}
+
+.partner {
+	text-align: center;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+		<title>景舟石瓢</title>
+		<link rel="stylesheet" type="text/css" href="css/works.css" />
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+
+
+	</head>
+	<body>
+		<main id="app">
+			<header>
+				<img src="img/works/shipao/shipao_01.jpg">
+			</header>
+			<section>
+				<img src="img/works/shipao/shipao_02.jpg">
+			</section>
+			<section>
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_04.jpg" class="lazy">
+			</section>
+			<section>
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_05.jpg" class="lazy">
+			</section>
+			<section>
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_06.jpg" class="lazy">
+			</section>
+			<section>
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_07.jpg" class="lazy">
+			</section>
+			<section>
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_08.jpg" class="lazy">
+			</section>
+			<section class="mt15">
+				<img src="img/pot/pseudo_graph.jpg" data-original="img/works/shipao/shipao_09.jpg" class="lazy">
+
+				<div class="goods_list mt10">
+					<div class="goods_container" v-for="(item,index) in list_goods" :key="index">
+						<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+						<div class="goods_header">
+							<span class="goods_name" style="width: 100%;">{{item.goods_name}}</span>
+							<div data-v-217ef9e2="" class="goods_info">
+								<span data-v-217ef9e2="">作者:{{item.artist_name}} </span> <span data-v-217ef9e2="" :title="item.slurry">泥料：{{item.slurry}}</span>
+								<span style="width: 100%;" data-v-217ef9e2="">容量:{{item.capacity}}</span>
+							</div>
+						</div>
+						<button class="consult2" @click="inquiry(item.goods_name)">点击询价</button>
+					</div>
+
+				</div>
+
+			</section>
+			<div style="width: 100%; height: 6rem;"></div>
+			<div id="fbtn">
+
+				<a class="details hidden" href="#fbtn" style="width: 100%;"> 详情咨询 </a>
+
+			</div>
+			<div class="foot-xunjia">
+				<div class="inquiry">
+					<div id="damand"> 咨询【{{goods_name}}】价格</div>
+					<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" autofocus="autofocus" value="" name="xjTel" id="xjTel"
+					 maxlength="11">
+					<button @click="onClickXunjia()">点击提交</button>
+					<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+				</div>
+
+				<div class="footer-k" @click="close()"> </div>
+			</div>
+			<div style="width: 100%;height: 4rem"> </div>
+			<div id="fbtn">
+
+				<a class="details" href="tel:‭13524312680‬" style="width: 100%;display: none;"> 限时优惠礼包 快速领取 </a>
+
+			</div>
+
+
+
+
+
+
+
+		</main>
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="js/works.js"></script>
+		<script src="js/do.js" type="application/javascript"></script>
+
+	</body>
+
+
+</html>

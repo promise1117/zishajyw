@@ -1,0 +1,478 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+a {
+	color: #2c2c2c;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+input::-webkit-input-placeholder {
+	text-align: center;
+	color: #ACACAC;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 500;
+}
+
+.mt5 {
+	margin-top: 0.41rem;
+}
+
+.mt10 {
+	margin-top: 0.83rem;
+}
+
+.mt15 {
+	margin-top: 1.25rem;
+}
+
+.mt20 {
+	margin-top: 1.66rem;
+}
+
+.mt25 {
+	margin-top: 2.08rem;
+}
+
+.mt30 {
+	margin-top: 2.5rem;
+}
+
+.mt50 {
+	margin-top: 4.16rem;
+}
+
+.mt100 {
+	margin-top: 8.33rem;
+}
+
+.tc {
+	text-align: center;
+}
+
+.pb5 {
+	padding-bottom: 0.41rem;
+}
+
+.pt5 {
+	padding-top: 0.41rem;
+}
+
+.pr {
+	position: relative;
+}
+
+.lang-price {
+	font-family: Verdana;
+}
+
+.fl {
+	float: left;
+}
+
+.hidden {
+	display: none;
+}
+
+[v-cloak]{
+	display: none;
+}
+
+#app {
+	width: 100%;
+	max-width: 1500px;
+	margin: auto;
+	/* background: #F6F2E9; */
+}
+
+header {
+	width: 100%;
+
+}
+
+section {
+	width: 100%;
+
+}
+
+.goods_list {
+	display: -webkit-box;
+	display: flex;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row wrap;
+	box-sizing: border-box;
+}
+
+.goods_container {
+	width: 48%;
+	border-radius: 1rem;
+	background-color: #F7F7F7;
+	margin-top: 0.5rem;
+	margin-left: 1.5%;
+	padding: 0.6rem;
+	text-align: center;
+}
+
+.goods_limit {
+	width: 100%;
+	border-radius: 5Px;
+}
+
+.goods_header {
+	width: 100%;
+	/* height: 4.16rem; */
+	padding: 4Px 2Px;
+	display: -webkit-box;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	font-weight: 700;
+	text-align: left;
+}
+
+
+
+.goods_info[data-v-217ef9e2] {
+	color: #454545;
+	font-size: 1.08rem;
+	margin-top: 2%;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row wrap;
+}
+
+.goods_info span[data-v-217ef9e2] {
+	width: 50%;
+	margin-top: 2Px;
+	font-size: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.goods_header .goods_name {
+	width: 100%;
+	color: #5B4641;
+	font-size: 1.2rem;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.goods_header .artisr_name {
+	width: 100%;
+	text-align: center;
+	color: #5C0202;
+	font-size: 1.3rem;
+}
+
+.goods_header .goods_zc {
+	width: 100%;
+	text-align: center;
+	color: #6B402F;
+	font-size: 1.1rem;
+}
+
+.goods_container button {
+	width: 80%;
+	padding: 2% 0;
+	border-radius: 10px;
+	color: #fff;
+	background: #B60006;
+	font-size: 1.4rem;
+	display: inline-block;
+	margin: 3% auto 0;
+}
+
+.click_to_consult {
+	width: 92%;
+	height: 50px;
+	border-radius: 25px;
+	background-color: #EE9B0D;
+	color: white;
+	font-size: 2rem;
+	margin: 1.5rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.artist {
+	padding-bottom: 5rem;
+	background-color: #F3EEE8;
+}
+
+.artist .goods_container {
+	background: url(../img/product/bg_01.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+
+footer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 20;
+}
+
+footer[data-v-de1f1c82] {
+	color: #231815;
+	font-size: 14px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+footer a[data-v-de1f1c82] {
+	color: #ad4224;
+}
+
+.partner {
+	text-align: center;
+}
+
+.foot {
+	max-width: 1500px;
+	margin: auto;
+	position: fixed;
+	bottom: 0;
+}
+
+#fbtn {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+}
+
+.full-gift {
+	width: 36%;
+    height: 5rem;
+    background: #DC5E0A;
+    font-size: 1.4rem;
+    /* border-radius: 0.3rem; */
+	font-weight: 500;
+	cursor: pointer;
+	margin:auto;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.details {
+	width: 100%;
+	height: 5rem;
+	line-height: 3rem;
+	padding:1rem;
+	text-align: center;
+	background: #A00000;
+	color: #FFFFFF;
+	font-size: 1.2rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.wechat_number {
+	background: blue;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: bottom;
+}
+
+a:hover {
+	color: #FFFFFF;
+}
+
+.details span {
+	font-size: 2.2rem;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	top: -6%;
+}
+
+.foot-xunjia {
+	width: 100vw;
+	max-width: 1500px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 20;
+}
+
+.inquiry {
+	width: 25rem;
+	height: 14.16rem;
+	background: inherit;
+	background-color: rgba(255, 255, 255, 1);
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(121, 121, 121, 1);
+	border-radius: 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	z-index: 100;
+}
+
+#damand {
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 1.5rem;
+}
+
+.shouji {
+	width: 90%;
+	height: 3.33rem;
+	border: 1px solid #bfbfbf;
+	font-size: 1.33rem;
+	padding-left: 5px;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.inquiry button {
+	width: 50%;
+	height: 2.33rem;
+	/* margin-top: 25px; */
+	background-color: #a91811;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #fff;
+	box-shadow: 0px 4px 0px #81130e;
+	cursor: pointer;
+}
+
+.foot-xunjia-k {
+	width: 90%;
+}
+
+.footer-k {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	position: fixed;
+	top: 0rem;
+	z-index: 11;
+	display: none;
+}
+
+
+.artist_header[data-v-0c97a771] {
+	padding: 12px 30px;
+	background: url(../img/product/artist_bg.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+
+.artist_header .avatar[data-v-0c97a771] {
+	width: 88px;
+	height: 88px;
+	border-radius: 88px;
+}
+
+.artist_header .artist_info .artist_zc[data-v-0c97a771] {
+	font-size: 16px;
+	margin-top: 12px;
+	color: #FFFFFF;
+}
+
+.artist_des_container .artist_des[data-v-0c97a771] {
+	padding: 12px 20px;
+	font-size: 14px;
+	color: #5B3A31;
+	overflow: hidden;
+	transition: all 1s;
+}
+
+.pswp__scroll-wrap {
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 999;
+	display: none;
+}
+
+.pswp_img {
+	width: 100%;
+	/* max-width: 375px; */
+	-o-object-fit: contain;
+	object-fit: contain;
+	display: block;
+	margin: auto;
+	z-index: 1000;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+}
+
+.custom-indicator {
+	border-radius: 0.2rem;
+	position: absolute;
+	right: 50%;
+	bottom: 5%;
+	transform: translate(50%, 0);
+	z-index: 100;
+	padding: 2px 5px;
+	color: #fff;
+	font-size: 1.4rem;
+	background: rgba(0, 0, 0, .6);
+}
+

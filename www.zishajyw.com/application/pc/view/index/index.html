@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="紫砂壶，宜兴紫砂壶，紫砂壶购买，紫砂壶收藏，紫砂壶价格">
+		<meta name="description" content="紫砂壶中天是专业的紫砂壶门户网站，从事紫砂壶相关服务已有十多年，旨在服务各位壶友，提供具有特色的宜兴紫砂壶购买、收藏与投资等服务">
+		<meta name="copyright" content="紫砂壶中天">
+		<title>紫砂壶中天_宜兴紫砂壶_紫砂壶购买_紫砂壶收藏_紫砂壶门户网站</title>
+		<script type="text/javascript">
+
+			if(window.location.href == "https://xzcy.bggd.com.cn/pc_index"){
+				window.location.href = "/start_up.html";
+			}
+			var sUserAgent = navigator.userAgent;
+			if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(sUserAgent)) {
+				window.location.href = "/index";
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_head.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_nav.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_index.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_tk-style.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/lib/swiper/c_swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/index.css" />
+		<script src="__PC__/lib/jquery/jquery.js"></script>
+		<script src="__PC__/lib/babel/browser-polyfill.min.js"></script>
+		<script src="__PC__/lib/babel/browser.min.js"></script>
+		
+		<!-- https://new.6jmtr3u.cn -->
+		<script>
+			(function(b,a,e,h,f,c,g,s){b[h]=b[h]||function(){(b[h].c=b[h].c||[]).push(arguments)};
+			b[h].s=!!c;g=a.getElementsByTagName(e)[0];s=a.createElement(e);
+			s.src="//s.union.360.cn/"+f+".js";s.defer=!0;s.async=!0;g.parentNode.insertBefore(s,g)
+			})(window,document,"script","_qha",341098,false);
+		</script>
+	</head>
+	<body>
+		<main id="app">
+			<!-- LOGO 标题 搜索 -->
+			{include file="public/header" /}
+
+			<div class="shop-index">
+				<!-- 导航 -->
+				<div class="shopNav-wrap">
+					<div class="w clearfix">
+						<!-- 快速搜索 -->
+						<div class="shopNav-search">
+							<a target="_blank" href="/pc_category">
+								<div class="search-fast clearfix">
+									<img src="__PC__/img/static/w_shop_search.png" alt="">
+									<span style="color: #ffffff">
+										快速选壶 </span>
+									<img src="__PC__/img/static/w_shop_arrow.png" alt="">
+								</div>
+							</a>
+						</div>
+						<!-- 分类 -->
+						<div class="classify-wrap">
+							<div class="classify-box">
+
+								{volist name="catlist" id="vo"}
+								<div class="box-item clearfix">
+									<span>{$vo.cat_name}</span>
+									<i></i> <!-- 竖杠 -->
+									<ul class="clearfix">
+										{volist name="$vo.cat_two" id="v" offset="0" length="1"}
+										{volist name="$v.cat_three" id="vv" offset="0" length="3"}
+										<li><a href="/pc_category?cat_id={$vv.cat_id}&is_people={$vv.is_people}&is_shape={$vv.is_shape}&is_capacity={$vv.is_capacity}&is_theme={$vv.is_theme}&is_mud={$vv.is_mud}&is_tealeaf={$vv.is_tealeaf}&is_ambitus={$vv.is_ambitus}&is_chinaware={$vv.is_chinaware}&is_iron_kettle={$vv.is_iron_kettle}&is_silver_kettle={$vv.is_silver_kettle}">{$vv.cat_name|mb_substr=0,3}</a></li>
+										{/volist}
+										{/volist}
+									</ul>
+									<img src="__PC__/img/static/w_shopNav_right.png" alt="">
+								</div>
+								{/volist}
+
+
+							</div>
+							<!-- 鼠标移入出现内容 -->
+							<div class="classify-con">
+								{volist name="catlist" id="vo"}
+
+								<div class="con-item">
+									<div class="item-box item-top">
+										{volist name="$vo.cat_two" id="v"}
+										<div class="clearfix">
+											<span class="meLabel">{$v.cat_name}</span>
+											<ul class="clearfix">
+												{volist name="$v.cat_three" id="vv"}
+												<li><a target="_blank" href="/pc_category?cat_id={$vv.cat_id}&is_people={$vv.is_people}&is_shape={$vv.is_shape}&is_capacity={$vv.is_capacity}&is_theme={$vv.is_theme}&is_mud={$vv.is_mud}&is_tealeaf={$vv.is_tealeaf}&is_ambitus={$vv.is_ambitus}&is_chinaware={$vv.is_chinaware}&is_iron_kettle={$vv.is_iron_kettle}&is_silver_kettle={$vv.is_silver_kettle}">{$vv.cat_name}</a></li>
+												{/volist}
+											</ul>
+										</div>
+										{/volist}
+									</div>
+								</div>
+
+								{/volist}
+
+							</div>
+						</div>
+						<!--分类 end-->
+						<!-- 分类导航 -->
+						<ul class="classify-nav clearfix">
+							<li><a target="_blank" href="/pc_index">首页</a></li>
+							<li class="artist"><a target="_blank" href="/pc_artist_detail?cat_id=230">名家介绍</a></li>
+							<li><a target="_blank" href="/pc_category">珍品馆</a></li>
+							<li><a target="_blank" href="/pc_category?cat_id=213&is_people=0&is_shape=0&is_capacity=0&is_theme=0&is_mud=0&is_tealeaf=0&is_ambitus=1&is_chinaware=0&is_iron_kettle=0&is_silver_kettle=0">紫砂周边</a></li>
+							<li><a target="_blank" href="/pc_category?type=sub&cat_id=207&is_people=0&is_shape=0&is_capacity=0&is_theme=0&is_mud=0&is_tealeaf=1&is_ambitus=0&is_chinaware=0&is_iron_kettle=0&is_silver_kettle=0">茶叶</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="guang-tops" style="width: 100%; height:500px">
+
+					<!-- Swiper轮播图 -->
+					<div class="swiper-container">
+						<ul class="swiper-wrapper"></ul>
+						<div class="swiper-pagination"></div>
+					</div>
+
+				</div>
+
+				<section class="w">
+					<!-- 限时特卖产品列表 -->
+					<div class="index-pro">
+						<div class="pro-info clearfix">
+							<div class="pro-tit clearfix">
+								<span>限时优惠</span>
+								<a target="_blank" href="" class="hide">更多
+									<img src="__PC__/img/static/w_shop_index_more.png" alt="">
+								</a>
+							</div>
+
+							<!-- 倒计时 -->
+							<div class="shijian hide">
+								<p class="total-ms">
+									<input type="hidden" value="219061">
+									<span id="day_show">2</span>天
+									<span id="hour_show">09</span>时
+									<span id="minute_show">10</span>分
+									<span id="second_show">38</span>秒
+								</p>
+							</div>
+						</div>
+
+						<ul class="nProList clearfix">
+							<!-- 循环li -->
+							{volist name="hotgoods" id="vo" offset="0" length="4"}
+							<li>
+								<a title="{$vo.name}" href="/pc_goodsinfo?goodsid={$vo.id}" class="nPro-img">
+									<img alt="{$vo.name}" src="{$vo.img|str_replace='http','https',###}">
+									<!-- <span class="nPro-zhuanti"></span> -->
+								</a>
+								<dl class="nPro-detail clearfix">
+									<dd class="nPro-title">
+										<a href="" title="{$vo.name}">{$vo.name}</a>
+									</dd>
+									<dd class="nPro-do">
+										<a class="xjBtn xuan" onclick="all_zixun_price('{$vo.goods_no}','{$vo.name}','{$vo.people_name}','{$vo.capacity_name}');">立即询价</a>
+									</dd>
+									<dd>编号：<a href="javascript:;">{$vo.goods_no}</a></dd>
+									<dd>作者：<a href="javascript:;">{$vo.people_name}</a></dd>
+									<dd class="flag_price" ><a href="javascript:;"  style="color: #e22431;">￥{$vo.sell_price}</a></dd>
+									<dd>容量：<a href="javascript:;">{$vo.capacity_name}</a></dd>
+								</dl>
+							</li>
+							{/volist}
+
+						</ul>
+					</div>
+
+					<!-- 新品上架 排行榜 -->
+					<div class="sort-news clearfix">
+						<!-- 新品上架 -->
+						<div class="news-on">
+							<div class="pro-tit clearfix">
+								<span>新品上架</span>
+								<a target="_blank" href="" class="hide">更多
+									<img src="__PC__/img/static/w_shop_index_more.png" alt="">
+								</a>
+							</div>
+							<ul class="nProList clearfix">
+								<!-- 循环li -->
+
+								{volist name="newgoods" id="vo" offset="0" length="6"}
+								<li>
+									<a title="{$vo.name}" href="/pc_goodsinfo?goodsid={$vo.id}" class="nPro-img">
+										<img alt="{$vo.name}" src="{$vo.img|str_replace='http','https',###}">
+										<!-- <span class="nPro-zhuanti"></span> -->
+									</a>
+									<dl class="nPro-detail clearfix">
+										<dd class="nPro-title">
+											<a href="/pc_goodsinfo?goodsid={$vo.id}" title="{$vo.name}">{$vo.name}</a>
+										</dd>
+										<dd class="nPro-do">
+											<a class="xjBtn xuan" onclick="all_zixun_price('{$vo.goods_no}','{$vo.name}','{$vo.people_name}','{$vo.capacity_name}')">立即询价</a>
+										</dd>
+										<dd>编号：<a href="javascript:;">{$vo.goods_no}</a></dd>
+										<dd>作者：<a href="javascript:;">{$vo.people_name}</a></dd>
+										<dd>泥料：<a href="javascript:;">{$vo.mud_name}</a></dd>
+										<dd>容量：<a href="javascript:;">{$vo.capacity_name}</a></dd>
+									</dl>
+								</li>
+								{/volist}
+							</ul>
+						</div>
+
+						<!-- 排行榜 -->
+						<div class="sort-bang">
+							<div class="pro-tit clearfix">
+								<span>排行榜</span>
+								<a href="" class="hide">更多
+									<img src="__PC__/img/static/w_shop_index_more.png" alt="">
+								</a>
+							</div>
+							<ul class="sort-big">
+								<div class="prev-three clearfix">
+									<!-- 人气排行 -->
+									<div class="people-sort clearfix">
+										<h3><span>人气排行榜</span></h3>
+
+										{volist name="hotgoods" id="vo" offset="0" length="3"}
+										<a href="/pc_goodsinfo?goodsid={$vo.id}" class="sort-three clearfix">
+											<img src="__PC__/img/static/w_shop_index_{$key+1}.png" alt="{$vo.name}">
+											<div class="sort-pro">
+												<img src="{$vo.img|str_replace='http','https',###}" alt="{$vo.name}">
+												<div class="sort-info">
+													<span>{$vo.name}</span>
+													<p><span>{$vo.people_name}</span> 作品</p>
+												</div>
+											</div>
+										</a>
+										{/volist}
+
+
+										<!-- 列表 -->
+										<ul class="pro-list">
+											{volist name="hotgoods" id="vo" offset="3" length="7"}
+											<li>
+												<a href="/pc_goodsinfo?goodsid={$vo.id}" class="clearfix">
+													<i>{$key+1}</i>
+													<h3>{$vo.name}</h3>
+													<p><span>{$vo.people_name}</span> 作品</p>
+												</a>
+											</li>
+											{/volist}
+
+										</ul>
+									</div>
+								</div>
+
+							</ul>
+						</div>
+					</div>
+					<!-- 名家推荐 -->
+					<div class="star-intro artist">
+						<div class="pro-tit clearfix">
+							<span>名家推荐</span>
+						</div>
+						<div class="author-box clearfix">
+
+							{volist name="artistlist" id="vo" offset="0" length="4"}
+							<div class="author-item clearfix">
+								<a class="author-pic" href="pc_artist_detail?cat_id={$vo.cat_id}">
+									<img src="{$vo.img|str_replace='http','https',###}" alt="{$vo.cat_name}">
+								</a>
+								<div class="author-info">
+									<p class="author-name clearfix">
+										<a href="pc_artist_detail?cat_id={$vo.cat_id}" class="name">{$vo.cat_name}</a>
+										<a href="pc_artist_detail?cat_id={$vo.cat_id}" class="label">看TA的作品</a>
+									</p>
+									<span>{$vo.position}</span>
+									<a href="pc_artist_detail?cat_id={$vo.cat_id}">
+										<p>{$vo.description|mb_substr=0,40}...<i> 详情&gt;&gt;</i></p>
+									</a>
+								</div>
+							</div>
+							{/volist}
+						</div>
+					</div>
+
+
+				</section>
+				<!-- 正品保证 -->
+				<div class="dibu mt30">
+					<img src="__PC__/img/static/w_foot-pic_03.jpg" alt="">
+				</div>
+				
+				{include file="public/footer" /}
+			</div>
+		</main>
+
+		<script src="__PC__/lib/vue/vue.min.js"></script>
+		<script src="__PC__/lib/swiper/swiper.min4.js"></script>
+		<script src="__PC__/js/common.js"></script>
+		<script src="__PC__/js/index.js" type="text/babel"></script>
+
+	</body>
+</html>

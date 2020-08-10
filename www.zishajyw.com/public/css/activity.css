@@ -1,0 +1,431 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+
+a {
+	color: #2c2c2c;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+input::-webkit-input-placeholder {
+	text-align: center;
+	color: #ACACAC;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 100%;
+	font-weight: 500;
+}
+
+.mt5 {
+	margin-top: 0.41rem;
+}
+
+.mt10 {
+	margin-top: 0.83rem;
+}
+
+.mt15 {
+	margin-top: 1.25rem;
+}
+
+.mt20 {
+	margin-top: 1.66rem;
+}
+
+.mt25 {
+	margin-top: 2.08rem;
+}
+
+.mt30 {
+	margin-top: 2.5rem;
+}
+
+.mt50 {
+	margin-top: 4.16rem;
+}
+
+.mt100 {
+	margin-top: 8.33rem;
+}
+
+.tc {
+	text-align: center;
+}
+
+.pb5 {
+	padding-bottom: 0.41rem;
+}
+
+.pt5 {
+	padding-top: 0.41rem;
+}
+
+.pr {
+	position: relative;
+}
+
+.lang-price {
+	font-family: Verdana;
+}
+
+.fl {
+	float: left;
+}
+
+.hidden {
+	display: none;
+}
+
+
+#app {
+	width: 100%;
+	max-width: 750px;
+	margin: auto;
+	background: #DDF9E7;
+}
+
+header {
+	width: 100%;
+
+}
+
+section {
+	width: 100%;
+
+}
+
+.goods_list {
+	display: -webkit-box;
+	display: flex;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row wrap;
+	box-sizing: border-box;
+}
+
+.goods_container {
+	width: 46%;
+	border: 0.33rem solid #38A343;
+	border-radius: 1rem;
+	background-color: #F7F7F7;
+	margin-top: 0.5rem;
+	margin-left: 2.5%;
+	text-align: center;
+}
+
+.goods_limit {
+	width: 100%;
+	border-radius: 5Px;
+}
+
+.goods_header {
+	width: 100%;
+	/* height: 4.16rem; */
+	padding: 4Px 2Px;
+	display: -webkit-box;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
+	font-weight: 700;
+	text-align: left;
+}
+
+
+
+.goods_info[data-v-217ef9e2] {
+	color: #454545;
+	font-size: 1.12rem;
+	margin-top: 2%;
+	padding: 0.6rem;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row wrap;
+}
+
+.goods_info span[data-v-217ef9e2] {
+	width: 50%;
+	margin-top: 2Px;
+	font-size: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.goods_header .goods_name {
+	width: 100%;
+	color: #3E231B;
+	font-size: 1.3rem;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.goods_header .artisr_name {
+	width: 100%;
+	text-align: center;
+	color: #5C0202;
+	font-size: 1.3rem;
+}
+
+.goods_header .goods_zc {
+	width: 100%;
+	text-align: center;
+	color: #6B402F;
+	font-size: 1.1rem;
+}
+
+.goods_container button {
+	width: 90%;
+	padding: 2% 0;
+	border-radius: 3px;
+	color: #fff;
+	background: #38A343;
+	font-size: 1.4rem;
+	display: inline-block;
+	margin: 0 auto 5%;
+}
+
+.click_to_consult {
+	width: 92%;
+	height: 50px;
+	border-radius: 25px;
+	background-color: #913104;
+	color: white;
+	font-size: 1.8rem;
+	margin: 1.5rem auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.click {
+	width: 36px;
+	height: 45px;
+	position: absolute;
+	top: 60%;
+	right: 5%;
+}
+
+.artist {
+	padding-bottom: 5rem;
+	background-color: #F3EEE8;
+}
+
+.artist .goods_container {
+	background: url(../img/product/bg_01.jpg) no-repeat;
+	background-size: 100% 100%;
+}
+
+footer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	z-index: 20;
+}
+
+footer[data-v-de1f1c82] {
+	color: #231815;
+	font-size: 14px;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+footer a[data-v-de1f1c82] {
+	color: #ad4224;
+}
+
+.partner {
+	text-align: center;
+}
+
+.foot {
+	max-width: 1500px;
+	margin: auto;
+	position: fixed;
+	bottom: 0;
+}
+
+#fbtn {
+	width: 100%;
+	margin: auto;
+	display: flex;
+	position: relative;
+	z-index: 100;
+}
+
+.full-gift {
+	width: 50%;
+	height: 5rem;
+	background: #DC5E0A;
+	font-size: 1.5rem;
+	font-weight: 500;
+	cursor: pointer;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.details {
+	width: 50%;
+	height: 5rem;
+	line-height: 5rem;
+	text-align: center;
+	background: #A00000;
+	color: #FFFFFF;
+	font-size: 1.4rem;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+a:hover {
+	color: #FFFFFF;
+}
+
+.details span {
+	font-size: 2.2rem;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	top: -6%;
+}
+
+.foot-xunjia {
+	width: 100vw;
+	max-width: 1500px;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	z-index: 20;
+}
+
+.inquiry {
+	width: 25rem;
+	height: 14.16rem;
+	background: inherit;
+	background-color: rgba(255, 255, 255, 1);
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(121, 121, 121, 1);
+	border-radius: 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	z-index: 100;
+}
+
+#damand {
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #e5e5e5;
+	font-size: 1.66rem;
+}
+
+.shouji {
+	border: 1px solid #bfbfbf;
+	width: 90%;
+	height: 3.33rem;
+	font-size: 1.33rem;
+	padding-left: 5px;
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+.inquiry button {
+	width: 50%;
+	height: 2.33rem;
+	/* margin-top: 25px; */
+	background-color: #a91811;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 16px;
+	color: #fff;
+	box-shadow: 0px 4px 0px #81130e;
+	cursor: pointer;
+}
+
+.foot-xunjia-k {
+	width: 90%;
+}
+
+.footer-k {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	position: fixed;
+	top: 0rem;
+	z-index: 11;
+	display: none;
+}
+.price_title{
+	width: 100%;
+	color: #38A343;
+	font-size: 2.16rem;
+	font-weight: bold;
+	text-align: center;
+}
+.letter{
+	width: 6.66rem;
+	border-radius: 50%;
+	color: #fff;
+	background: #38A343;
+	font-size: 66px;
+	text-align: center;
+	margin: 1rem auto;
+}
+.click_to_consult {
+    width: 92%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #38A343;
+    color: white;
+    font-size: 26px;
+    margin: 1.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

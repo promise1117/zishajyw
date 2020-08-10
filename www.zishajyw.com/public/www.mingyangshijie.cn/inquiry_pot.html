@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<meta name="renderer" content="webkit">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+
+		<title>壶中天</title>
+
+		<link rel="shortcut icon" href="img/pot/logo.png" type="image/x-icon">
+
+		<link rel="stylesheet" type="text/css" href="css/inquiry_pot.css" />
+
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+	</head>
+
+	<body>
+
+		<div id="app">
+
+			<header>
+
+				<img src="img/pot/inquiry_01.jpg">
+
+			</header>
+			<header>
+
+				<img src="img/pot/inquiry_02.jpg">
+
+			</header>
+			<main>
+				<div class="consult">
+					<div class="cell-input">
+						<input name="telphone" id="telphone1" placeholder="提交电话领取优惠资格">
+					</div>
+
+					<div class="confirm" id="mbtn">
+
+						提交领取
+
+					</div>
+				</div>
+			</main>
+
+			<main class="mt20 pr">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_03.jpg">
+
+			</main>
+
+			<main class="mt15">
+				<ul class="boutique">
+					<li :class="{active:item.flag}" v-for="(item,index) in list" @click="toggleClass(item,index)">
+						{{item.name}}
+					</li>
+				</ul>
+				<div class="goods_list">
+					<div class="goods_container" v-for="(item,index) in goods[goods_index]">
+						<img alt="" class="goods_limit" :src="item.img">
+						<div class="goods_header">
+							<span class="goods_name" style="width: 48%;">{{item.name}}</span>
+							<button class="consult2" @click="inquiry(item.name)">点击询价</button>
+						</div>
+					</div>
+					<!-- <div class="goods_container">
+						<img alt="" class="goods_limit" src="img/pot/clay_02.jpg">
+						<div class="goods_header">
+							<span class="goods_name" style="width: 48%;">斑竹提梁</span>
+							<button class="consult2">马上抢购</button>
+						</div>
+					</div> -->
+				</div>
+
+			</main>
+
+			<main class="mt15">
+
+				<img @click="inquiry('更多产品')" src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_04.jpg">
+
+			</main>
+
+			<main class="mt15">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_05.jpg">
+
+			</main>
+
+			<main class="mt10">
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/teapot_38.jpg">
+
+			</main>
+			<main>
+
+				<img src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/teapot_31.jpg">
+
+			</main>
+
+			<main class="mt15">
+
+				<img @click="inquiry('更多产品')" src="img/pot/pseudo_graph.jpg" class="lazy" data-original="img/pot/inquiry_06.jpg">
+
+			</main>
+
+			<footer data-v-de1f1c82="" data-v-7a7d1ec7="">
+
+				<a data-v-de1f1c82="" href="about_us.html">关于我们</a>
+				<p class="partner">
+					微信号：benteng987654<br>
+					©郑州鑫翀信息科技有限公司 版权所有<br>
+				</p>
+			</footer>
+			<div style="width: 100%;height: 6rem"> </div>
+
+
+
+			<footer class="foot mt30 pr">
+
+				<div id="fbtn">
+
+					<div class="full-gift" data-clipboard-text="benteng987654">
+						<label class="wechat_number">benteng987654</label>
+						<span>添加微信</span>
+
+					</div>
+
+
+					<a class="details" href="tel:‭19821607323‬">服务热线，快速报价 </a>
+
+
+				</div>
+
+				<div class="foot-xunjia">
+					<div class="inquiry">
+						<div id="damand"> 咨询【{{goods_name}}】价格</div>
+						<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" autofocus="autofocus" value="" name="xjTel" id="xjTel"
+						 maxlength="11">
+						<button @click="onClickXunjia()">点击提交</button>
+						<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+					</div>
+
+					<div class="footer-k" @click="close()"> </div>
+				</div>
+
+			</footer>
+
+
+		</div>
+
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
+
+		<script>
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			const vm = new Vue({
+				el: '#app',
+				data: {
+
+					goods_name: '',
+					goods_index: 0,
+					list: [{
+							id: 0,
+							name: '1千元以内',
+							flag: true,
+						},
+						{
+							id: 1,
+							name: '1千-5千元',
+							flag: false,
+						},
+						{
+							id: 2,
+							name: '5千-1万元',
+							flag: false,
+						}, {
+							id: 3,
+							name: '1万以上',
+							flag: false,
+						}
+					],
+					goods: [
+						[{
+								id: 0,
+								name: '圆珠壶',
+								img: 'img/pot/clay_02.jpg',
+							},
+							{
+								id: 1,
+								name: '六方井栏',
+								img: 'img/pot/clay_03.jpg',
+							},
+							{
+								id: 2,
+								name: '松鼠壶',
+								img: 'img/pot/clay_04.jpg',
+							}, {
+								id: 3,
+								name: '松鼠葡萄',
+								img: 'img/pot/clay_05.jpg',
+							},
+							{
+								id: 4,
+								name: '春晖',
+								img: 'img/pot/clay_06.jpg',
+							},
+							{
+								id: 5,
+								name: '一粒珠',
+								img: 'img/pot/clay_01.jpg',
+							}
+						],
+						[{
+								id: 0,
+								name: '南瓜',
+								img: 'img/pot/1千-5千_03.jpg',
+							},
+							{
+								id: 1,
+								name: '四方傅炉',
+								img: 'img/pot/1千-5千_05.jpg',
+							},
+							{
+								id: 2,
+								name: '清水泥石瓢',
+								img: 'img/pot/1千-5千_09.jpg',
+							}, {
+								id: 3,
+								name: '水平',
+								img: 'img/pot/1千-5千_10.jpg',
+							},
+							{
+								id: 4,
+								name: '西施',
+								img: 'img/pot/1千-5千_13.jpg',
+							},
+							{
+								id: 5,
+								name: '旋花',
+								img: 'img/pot/1千-5千_14.jpg',
+							}
+						],
+						[{
+								id: 0,
+								name: '鱼化龙',
+								img: 'img/pot/5千-1万_03.jpg',
+							},
+							{
+								id: 1,
+								name: '报春',
+								img: 'img/pot/5千-1万_05.jpg',
+							},
+							{
+								id: 2,
+								name: '国色天香',
+								img: 'img/pot/5千-1万_09.jpg',
+							}, {
+								id: 3,
+								name: '秋水',
+								img: 'img/pot/5千-1万_10.jpg',
+							},
+							{
+								id: 4,
+								name: '西施',
+								img: 'img/pot/5千-1万_13.jpg',
+							},
+							{
+								id: 5,
+								name: '寿桃',
+								img: 'img/pot/5千-1万_14.jpg',
+							}
+						],
+						[{
+								id: 0,
+								name: '月下牡丹',
+								img: 'img/pot/1万以上_03.jpg',
+							},
+							{
+								id: 1,
+								name: '玉兰富贵',
+								img: 'img/pot/1万以上_05.jpg',
+							},
+							{
+								id: 2,
+								name: '平安如意',
+								img: 'img/pot/1万以上_09.jpg',
+							}, {
+								id: 3,
+								name: '鱼跃龙门',
+								img: 'img/pot/1万以上_10.jpg',
+							},
+							{
+								id: 4,
+								name: '浩然正气',
+								img: 'img/pot/1万以上_13.jpg',
+							},
+							{
+								id: 5,
+								name: '祥瑞',
+								img: 'img/pot/1万以上_14.jpg',
+							}
+						]
+					]
+				},
+				methods: {
+					lazyload() {
+						$(".lazy").lazyload({
+							threshold: 200, //设置临界点
+							effect: "fadeIn", //使用特效
+							failure_limit: 20, //当图片不连续时,通过 failurelimit 选项来控制加载行为.
+							skip_invisible: false //加载隐藏图片
+						});
+					},
+					toggle(item, index) {
+						console.log(index);
+						this.list.forEach(i => {
+							console.log(i.flag);
+							console.log(this.list[index].flag);
+							if (i.flag !== this.list[index].flag) {
+								i.flag = false
+							}
+						})
+
+
+						item.flag = !item.flag
+					},
+					toggleClass(item, index) {
+						console.log(index);
+						this.list.forEach(i => {
+							console.log(i.flag);
+							console.log(this.list[index].flag);
+							if (i.flag !== this.list[index].flag) {
+								i.flag = false
+							}
+						})
+						item.flag = true
+						this.goods_index = index;
+					},
+					inquiry(name) {
+						console.log(name)
+						this.goods_name = name;
+						$('.footer-k,.foot-xunjia').show();
+
+						$('.foot-xunjia').stop().animate({
+
+							bottom: 0
+
+						}, 200);
+
+						$('#fbtn').hide();
+					},
+					onClickXunjia() {
+						layer.load();
+
+						telphone2();
+
+					},
+					close() {
+						$('.footer-k,.foot-xunjia').hide();
+
+						$('#fbtn').show();
+					}
+
+
+				},
+				created() {
+
+
+				},
+				mounted() {
+					this.lazyload();
+				},
+				watch: {
+
+				}
+			})
+
+			function telphone2() {
+
+				const telphone = $("#xjTel").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) == false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+
+					var demand = [];
+					demand.push($('#damand').text());
+					demand = JSON.stringify(demand)
+					console.log(demand)
+
+					$.ajax({
+
+						type: 'get',
+
+						url: 'http://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'jsonp',
+						crossDomain: true,
+						jsonp: "cb",
+						success: function(data) {
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+							console.log(data)
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+							console.log('false')
+						}
+
+					})
+
+				}
+
+			}
+			$(function() {
+
+				$('.code img').attr('src', '/static/index/img/pot/code_07.png');
+				$('.full-gift').attr('data-clipboard-text', 'benteng987654');
+				$('.wechat_number,.weixin').text('benteng987654');
+
+
+
+				function telphone() {
+
+					const telphone = $("#telphone1").val();
+
+					var regCode = /^1\d{10}$/;
+
+					if (regCode.test(telphone) == false) {
+
+						layer.close(layer.index);
+
+						layer.msg('请输入您的手机号,手机号码不正确', {
+							icon: 5,
+							time: 1000
+						})
+
+						return false;
+
+					} else {
+
+						var demand = [];
+
+						$('input[name = demand]:checked').each(function() {
+
+							demand.push($(this).val());
+
+						})
+
+						demand = JSON.stringify(demand);
+
+						$.ajax({
+
+							type: 'post',
+
+							url: 'http://www.zishajyw.com/pot_add',
+
+							data: {
+								'telphone': telphone,
+								'demand': demand
+							},
+
+							dataType: 'json', //跨域请求
+
+							success: function(data) {
+
+								/*console.log(data);
+		
+										layer.close(layer.index);
+		
+										if(data.code == 0){
+		
+											layer.msg('提交成功',{icon:6,time:2000})
+		
+										}else{
+		
+											layer.msg('提交失敗',{icon:5,time:2000})
+		
+										}*/
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							},
+
+							error: function() {
+
+								layer.close(layer.index);
+
+								//layer.msg('提交失敗',{icon:5,time:2000});
+
+								layer.msg('提交成功', {
+									icon: 6,
+									time: 2000
+								})
+
+							}
+
+						})
+
+					}
+
+				}
+
+				$('.confirm').click(function() {
+
+					layer.load();
+
+					telphone();
+
+				})
+
+
+				// 复制文本内容
+				var copyBtn = new ClipboardJS('.full-gift');
+
+				copyBtn.on("success", function(e) {
+					// 复制成功
+					$('.full-gift span').text('已复制');
+					e.clearSelection();
+				});
+				copyBtn.on("error", function(e) {
+					//复制失败；
+					console.log(e.action)
+				});
+
+
+				//弹出二维码
+				$('activities,.weixin,.consult2').click(function() {
+					$('.full-gift span').text('添加微信');
+					$('.footer-k,.foot-xunjia').show();
+
+					$('.foot-xunjia').stop().animate({
+
+						bottom: 0
+
+					}, 200);
+
+					$('#fbtn').hide();
+				})
+
+
+				// 切换微信号和二维码
+				/*const dataWeixin = [
+							[{
+								"src": "code_01.jpg",
+								"wechat_number": 'CHENKEKE556688'
+							}],
+							[{
+								"src": "code_02.jpg",
+								"wechat_number": 'DAPENG68730'
+							}],
+							[{
+								"src": "code_03.jpg",
+								"wechat_number": 'WXID263526'
+							}],
+							[{
+								"src": "code_04.jpg",
+								"wechat_number": 'jiasuo7015'
+							}],
+							[{
+								"src": "code_05.jpg",
+								"wechat_number": 'xby497'
+							}],
+							[{
+								"src": "code_06.jpg",
+								"wechat_number": 'LIU1126589'
+							}]
+						];
+		
+						let index = Math.ceil(Math.random() * 5);
+						// move();
+						// console.log(index)
+		
+						function move() {
+							index = index > 5 ? 0 : index;
+							$('.code img').attr('src', 'img/' + dataWeixin[index][0].src);
+							$('.full-gift').attr('data-clipboard-text', dataWeixin[index][0].wechat_number);
+							$('.wechat_number,.weixin').text(dataWeixin[index][0].wechat_number);
+							$('.weixin').css({
+								'letter-spacing': '2px',
+								'font-size': '1.5rem'
+							})
+							if (index == 0 || index == 1) {
+								$('.weixin').css({
+									'letter-spacing': 0,
+									'font-size': '1.2rem'
+								})
+							}
+						};
+		
+						function getTime() {
+							const time = new Date();
+							const m = time.getMinutes();
+							console.log(m)
+							if (m == 10) {
+								index++;
+								move();
+							}
+		
+						}
+						// const timeInterval = setInterval(function() {
+						// 	getTime()
+						// }, 1000 * 58);*/
+
+
+
+
+
+
+			})
+		</script>
+
+
+	</body>
+
+</html>

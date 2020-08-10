@@ -1,0 +1,146 @@
+<!-- 底部 -->
+<div class="bg2">
+	<div class="w1200">
+		<div class="dibu-top clearfix" style="position:relative;">
+			<div class="title_name">
+							<!-- 公司名称：天津市南开区桃陶珠宝首饰店 -->
+							桃陶珠宝
+			</div>
+			<div class="foot-l">
+				<p class="link">
+					<a href="/about_us">关于我们</a> -
+					<a href="/about_us">发展历程</a>
+				</p>
+			</div>
+		</div>
+
+		<!-- 友情链接 -->
+		<div class="foot-link clearfix">
+			<div class="link-left">
+
+				<div class="link-pic">
+					<img src="__PC__/img/static/w_foot-pic_06.jpg" alt="">
+				</div>
+				<div class="link-bot hide">
+					<div class="link-num">
+						<img src="__PC__/img/static/w_foot-ga.png" alt="">
+						<span>
+							<a href="//www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010102002609" target="_blank">
+								ICP备20008750号-1
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="link-right hide">
+				<span>13524312680</span>
+			</div>
+
+		</div>
+
+
+	</div>
+</div>
+
+<div id="xunjia">
+
+	<div class="xl-ask-wrap zixun_box_message" style="display: none;">
+		<!-- 咨询框主体 -->
+		<div class="xl-tc-con zisha-bg pipe-bg clearfix">
+			<a href="javascript:;" onclick="close_zixun();" class="tc-close">
+				<img src="__PC__/img/static/w_tk-close.png" width="30" height="30"></a>
+			<div class="tc-con-l zisha-color pipe-color hide">
+				<p><span>拨打免费热线，直接沟通：</span></p>
+				<p><span class="phone-col zisha-col pipe-col">13524312680</span></p>
+				<p class="phone-three"><a href="#"></a></p>
+				<p class="djsq-ico"><a href=" " target="_blank"></a></p>
+			</div>
+			<div class="tc-con-r">
+				<div class="xl-xunjia zisha-xl pipe-xl">
+					<span class="kuabsuzixun">快速询价</span>
+					<span>（10分钟内回复）</span>
+				</div>
+				<div class="pro-name">
+					<img src="__PC__/img/static/w_tk-zx.png" alt="">
+					<div class="name-num">
+						<span id="zixunkuang_pname">梅花井栏</span>
+						<span id="zixunkuang_author">常月红</span>
+					</div>
+				</div>
+
+				<p id="couponHtml" style="display: none;"></p>
+
+				<div class="lianxi1 clearfix">
+					<label for="手机号码">手机号码:</label>
+					<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" value="" name="xjTel" id="xjTel" maxlength="11">
+					<input type="hidden" name="pid" id="pid" value="37339">
+					<input type="hidden" name="pname" id="pname" value="梅花井栏">
+					<input type="hidden" name="content" id="content" value="询价: 作者:常月红--梅花井栏(37339)">
+				</div>
+				<button onclick="onClickXunjia();">提交</button>
+			</div>
+		</div>
+
+		<!-- 消息提示框 -->
+		<div class="xl-tk-tip xl_tip_false" style="display: none">
+			<a href="javascript:;" onclick="close_zixunTip();" class="tc-close">
+				<img src="__PC__/img/static/w_tk-close.png" width="30" height="30">
+			</a>
+			<p id="tip-txt">请填写正确的手机号码！</p>
+			<a href="javascript:;" onclick="close_zixunTip();" class="tc-close2">确 认</a>
+		</div>
+		<div id="downApp" class="xl-tk-tip xl_tip_true" style="display: none">
+			<a href="javascript:;" onclick="closezixunAll();" class="tc-close">
+				<img src="__PC__/img/static/w_tk-close.png" width="30" height="30">
+			</a>
+			<p id="tip-txt">提交成功！客服将在10分钟内与您联系！</p>
+			<a href="javascript:;" onclick="closezixunAll();" class="tc-close2">确 认</a>
+		</div>
+
+
+	</div>
+
+	<div id="bigbodybg" style="display: none;"></div>
+</div>
+
+<div class="xl-ask-wrap receive" style="display: none;">
+	<!-- 咨询框主体 -->
+	<div class="xl-tc-con zisha-bg unknown clearfix" >
+		<a href="javascript:;" onclick="close_zixun();" class="tc-close">
+			<img src="/static/pc/img/static/w_tk-close.png" width="30" height="30"></a>
+
+		<div class="tc-con-r">
+			<div class="xl-xunjia zisha-xl pipe-xl">
+				<span>数据更新中...咨询客服直接获取资料</span>
+				<span>（10分钟内回复）</span>
+			</div>
+
+			<div class="lianxi1 clearfix">
+				<label for="手机号码">手机号码:</label>
+				<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" value="" name="" id="telphone" maxlength="11">
+			</div>
+			<button class="information">
+				获取资料
+			</button>
+		</div>
+	</div>
+
+	<!-- 消息提示框 -->
+	<div class="xl-tk-tip xl_tip_false" style="display: none">
+		<a href="javascript:;" onclick="close_zixunTip();" class="tc-close">
+			<img src="/static/pc/img/static/w_tk-close.png" width="30" height="30">
+		</a>
+		<p id="tip-txt">请填写正确的手机号码！</p>
+		<a href="javascript:;" onclick="close_zixunTip();" class="tc-close2">确 认</a>
+	</div>
+	<div id="downApp" class="xl-tk-tip xl_tip_true" style="display: none">
+		<a href="javascript:;" onclick="closezixunAll();" class="tc-close">
+			<img src="/static/pc/img/static/w_tk-close.png" width="30" height="30">
+		</a>
+		<p id="tip-txt">提交成功！客服将在10分钟内与您联系！</p>
+		<a href="javascript:;" onclick="closezixunAll();" class="tc-close2">确 认</a>
+	</div>
+
+
+</div>

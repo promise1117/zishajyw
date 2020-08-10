@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+		<title>宜兴紫砂壶官网</title>
+		<link rel="shortcut icon" href="img/banner/teapot.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.0/css/swiper.min.css">
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+		<style type="text/css">
+			[v-cloak] {
+				display: none;
+			}
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+
+			section {
+				width: 100%;
+				height: auto;
+			}
+
+			#fbtn {
+				width: 100%;
+				margin: auto;
+				display: flex;
+				position: fixed;
+				bottom: 0;
+				z-index: 100;
+			}
+
+			.full-gift {
+				width: 36%;
+				height: 5rem;
+				background: #DC5E0A;
+				font-size: 1.4rem;
+				/* border-radius: 0.3rem; */
+				font-weight: 500;
+				cursor: pointer;
+				margin: auto;
+				color: white;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.details {
+				width: 100%;
+				line-height: 3rem;
+				padding: 1rem;
+				text-align: center;
+				background: #A00000;
+				color: #FFFFFF;
+				font-size: 1.2rem;
+				font-weight: 500;
+				cursor: pointer;
+			}
+
+			.wechat_number {
+				background: blue;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				vertical-align: bottom;
+			}
+		</style>
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+
+	</head>
+
+	<body>
+
+		<main id="app" v-cloak>
+			<section style="margin-top: 1rem;">
+				<img src="img/gtt/limited_time_special.jpg">
+			</section>
+			<section>
+				<img src="img/gtt/special_goods.jpg">
+			</section>
+			<section>
+				<img src="img/gtt/master_collection.jpg">
+			</section>
+			<section v-for="item in goods">
+				<img v-lazy="item">
+			</section>
+			<div style="width: 100%;height: 8rem"> </div>
+			<div id="fbtn">
+
+				<div class="details" style="">
+
+					咨询更多产品 请复制微信号:<label class="wechat_number">xby497</label>
+
+				</div>
+
+				<div class="full-gift" data-clipboard-text="xby497">
+
+					点击复制
+
+				</div>
+
+			</div>
+		</main>
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://cdn.staticfile.org/vue-router/3.1.3/vue-router.min.js"></script>
+		<script src="https://unpkg.com/vue-lazyload/vue-lazyload.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/4.5.0/js/swiper.min.js"></script>
+
+
+		<script>
+			Vue.use(VueLazyload, {
+				preLoad: 1.3,
+				error: 'img/pot/pseudo_graph.jpg',
+				loading: 'img/pot/pseudo_graph.jpg',
+				attempt: 1
+			});
+
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					goods: ['img/gtt/sgoods_01.jpg', 'img/gtt/sgoods_02.jpg', 'img/gtt/sgoods_03.jpg', 'img/gtt/sgoods_04.jpg']
+				},
+				methods: {
+
+
+				},
+				created() {
+
+
+				},
+				mounted() {},
+				watch: {
+
+				}
+			})
+
+			// 复制文本内容
+			var copyBtn = new ClipboardJS('.full-gift');
+
+			copyBtn.on("success", function(e) {
+				// 复制成功
+				alert("微信号复制成功", 1500);
+				window.location.href = 'weixin://';
+				e.clearSelection();
+			});
+			copyBtn.on("error", function(e) {
+				//复制失败；
+				console.log(e.action)
+			});
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="紫砂壶名家，紫砂壶名师介绍，宜兴紫砂壶，紫砂壶中天">
+		<meta name="description" content="壶中天是专业的紫砂壶门户网站，从事紫砂壶相关服务已有十多年，旨在服务各位壶友，提供具有特色的宜兴紫砂壶购买、收藏与投资等服务">
+		<meta name="copyright" content="紫砂壶中天">
+		<title>名家介绍_宜兴紫砂壶_紫砂壶中天</title>
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_head.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_tk-style.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_shop_author.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_right_nav.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/css/common.css" />
+	</head>
+	<body>
+		<main id="app">
+			<!-- LOGO 标题 搜索 -->
+			{include file="public/header" /}
+			<div class="main w clearfix">
+				<!-- 面包屑 -->
+				<div class="curAt">
+					<a href="/pc_index">壶中天</a> 〉
+					<span>艺人详情</span>
+				</div>
+				<div class="shop-left">
+					{volist name="catAll" id="vo"}
+					{volist name="$vo.cat_two" id="v"}
+					<div class="left-img">
+						<div class="left-img1">
+							<img src="__PC__/img/static/w_shop_alist_10.png">
+							<p><span>{$v.cat_name}</span></p>
+						</div>
+					</div>
+					<div class="left-yr">
+						<ul>
+							{volist name="$v.cat_three" id="vv"}
+							<li><a target="_blank" href="/pc_category?cat_id={$vv.cat_id}&is_people={$vv.is_people}&is_shape={$vv.is_shape}&is_capacity={$vv.is_capacity}&is_theme={$vv.is_theme}&is_mud={$vv.is_mud}&is_tealeaf={$vv.is_tealeaf}&is_ambitus={$vv.is_ambitus}&is_chinaware={$vv.is_chinaware}&is_iron_kettle={$vv.is_iron_kettle}&is_silver_kettle={$vv.is_silver_kettle}">{$vv.cat_name}</a></li>
+							{/volist}
+
+						</ul>
+
+
+					</div>
+					{/volist}
+					{/volist}
+
+
+
+				</div>
+				<div class="shop-right">
+					<div class="actor-xin">
+						<div class="actor-con">
+							<div class="actor-tit">
+								<h1>{$artistlist.cat_name}</h1><span>{$artistlist.position|mb_substr=0,25}...</span>
+							</div>
+							<p class="actor-jj">  {$artistlist.description|mb_substr=0,150}...</p>
+							<ul class="actor-ul">
+								<a href="javascript:;" onclick="changeTip(0,this)">
+									<li class="on"><img src="__PC__/img/static/w_allp.png"><img src="__PC__/img/static/w_allph.png"><span>查看全部作品</span></li>
+								</a>
+								<a href="javascript:;" onclick="changeTip(1,this)">
+									<li class=""><img src="__PC__/img/static/w_jianp.png"><img src="__PC__/img/static/w_jianoh.png"><span>查看艺人简历</span></li>
+								</a>
+							</ul>
+						</div>
+						<img class="actor-img" src="{$artistlist.img|str_replace='http','https',###}">
+					</div>
+					<div class="actor-poduct">
+						<div class="actor-titp">
+							<p>作品推荐</p>
+						</div>
+						<div class="actor-titp hidden">
+							<p>艺人简历</p>
+						</div>
+						<div class="actor-jian hidden">
+							<p>　　{$artistlist.description}</p>
+						</div>
+						<ul class="nProList clearfix">
+							<!-- 循环li -->
+							{volist name="goods" id="vo"}
+							<li>
+								<a href="/pc_goodsinfo?goodsid={$vo.id}" class="nPro-img">
+									<img src="{$vo.img|str_replace='http','https',###}">
+								</a>
+						
+								<dl class="nPro-detail clearfix">
+									<dd class="nPro-title">
+										<a href="javascript:;">{$vo.name}</a>
+									</dd>
+									<dd class="nPro-do">
+										<a href="javascript:void(0)" class="xjBtn xuan" onclick="all_zixun_price('{$vo.id}','{$vo.name}','{$vo.people_name}','{$vo.capacity_name}')">点击询价</a>
+									</dd>
+									<dd>作者：<a href="javascript:void(0)">{$vo.people_name}</a></dd>
+									<dd>编号：<a href="javascript:void(0)">{$vo.goods_no}</a></dd>
+									<dd>泥料：<a href="javascript:void(0)">{$vo.mud_name}</a></dd>
+									<dd>容量: <a href="javascript:void(0)">{$vo.capacity_name}</a></dd>
+								</dl>
+							</li>
+							{/volist}
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</main>
+		{include file="public/footer" /}
+	</body>
+	<script src="__PC__/lib/jquery/jquery.js"></script>
+	<script src="__PC__/lib/vue/vue.min.js"></script>
+	<script src="__PC__/js/artist_detail.js"></script>
+	<script src="__PC__/js/common.js"></script>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="紫砂壶,宜兴紫砂壶">
+		<meta name="description" content="紫砂壶中天是专业的紫砂壶门户网站，从事紫砂壶相关服务已有十多年，旨在服务各位壶友，提供具有特色的宜兴紫砂壶购买、收藏与投资等服务">
+		<meta name="copyright" content="紫砂壶中天">
+		<title>紫砂壶中天</title>
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_baseStyle.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_head.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_zpxq.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/w_tk-style.css">
+		<link rel="stylesheet" href="__PC__/css/w_comment.css">
+		<link rel="stylesheet" type="text/css" href="__PC__/lib/swiper/c_swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/common.css" />
+		<link rel="stylesheet" type="text/css" href="__PC__/css/index.css" />
+	</head>
+	<body>
+		<main id="app">
+
+			{include file="public/header" /}
+			<div class="zpxq">
+
+				<!--面包屑导航-->
+				<div class="title">
+					<img src="__PC__/img/static/w_home.png" width="14" height="12">
+					<a href="/pc_index">壶中天</a> &gt;&gt;
+					<span>作品详情</span> &gt;&gt;
+					<span>{$info.name}</span>
+				</div>
+
+				<!--作品信息-->
+				<div class="shop_info">
+					<div class="info-left">
+						<img src="{$info.img|str_replace='http','https',###}">
+					</div>
+					<div class="info-center">
+						<p class="info-name"> <label>{$info.name}</label> <span>[ 编号：<b>{$info.goods_no}</b> ]</span></p>
+						<input type="hidden" value="2-1">
+						<ul>
+							<!--铁壶详情页没有连接-->
+							<li>
+								<label>作者：</label>
+								<span><a href="">{$info.people_name}</a></span>
+							</li>
+							<li>
+								<label>壶型：</label>
+								<span><a href="">{$info.shape_name}</a></span>
+							</li>
+							<li>
+								<label>容量：</label>
+								<span><a href="">{$info.capacity_name}</a></span>
+							</li>
+							<li>
+								<label>泥料：</label>
+								<span><a href="">{$info.mud_name}</a></span>
+							</li>
+						</ul>
+						<div class="info-wujia">
+							<p class="info-xunjia">询价：<span>10分钟内回复</span></p>
+							<div class="info-btn clearfix">
+								<button class="xq_xj xuan" type="button" onclick="all_zixun_price('{$info.goods_no}','{$info.name}','{$info.people_name}','{$info.capacity_name}')">
+									<img src="__PC__/img/static/w_xq_xj.png"> 我要询价
+								</button>
+							</div>
+						</div>
+						<img src="__PC__/img/static/w__xq_zpbz.jpg">
+					</div>
+					<div class="info-right">
+						<!--根平台判断-->
+						<p class="actor-tit">艺人简介</p>
+						<a class="actor-img" href="/pc_artist_detail?cat_id={$info.pid}">
+							<img src="{$info.artist_img|str_replace='http','https',###}">
+						</a>
+						<p class="actor-name">
+							<a href="/pc_artist_detail?cat_id={$info.pid}">{$info.people_name}</a>
+							<a href="/pc_artist_detail?cat_id={$info.pid}">查看Ta的作品 》</a>
+						</p>
+						<p class="actor-zhic">{$info.position|mb_substr=0,15}...</p>
+						<p class="actor-jianj">
+							<!--作者简介截取50个字-->
+							{$info.description|mb_substr=0,50}…
+							<a href="/pc_artist_detail?cat_id={$info.pid}">详情》</a>
+						</p>
+					</div>
+				</div>
+				<p id="content1">
+					<!--埋一个锚点-->
+				</p>
+				<div class="sub-nav" style="position: static; top: 0px;">
+					<!--详情导航-->
+					<div class="suspend_nav w">
+						<ul class="shop-nav">
+							<li class="on" onclick="nrFn('01',this)">
+								<a href="#content1">作品详情</a>
+							</li>
+							<li onclick="nrFn('02',this)" class="">
+								<a href="#content1">艺人简历</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="main">
+
+					<div class="nrClass" id="nr_01" style="display: block;">
+						<!--作品信息-->
+
+						<!--作品描述-->
+						<div class="shop-conk">
+							<p class="con-tit"><i></i>作品描述</p>
+							<div class="shop-con">
+
+<!--								<div> 　　蒋永林</div>-->
+<!--								<div>　　蒋蓉大师亲笔题词"壶艺春秋"</div>-->
+<!--								<div>　　擅长全手工花器</div>-->
+<!--								<div>　　作品工艺精优清秀大气形神兼备</div>-->
+<!--								<div>　　此壶壶身饱满，整体造型为瓜形，线条丰盈流畅，壶嘴和壶把暗接，让壶显得浑然一体。壶盖和壶钮做成瓜蒂状，活灵活现的表现出了瓜果特有的造型特色，可见老师对生活的观察之细腻，设计之用心，做工之精妙!壶身贴饰了葫芦叶和葫芦，让整个作品显得更为立体，有层次感，趣味十足!</div>-->
+								<pre style="white-space:pre-wrap;word-wrap:break-word;">
+									<p data-v-1c281437="" style="text-indent: 0rem;">{$info.content}</p>
+								</pre>
+
+							</div>
+						</div>
+						<!--作品展示-->
+						<div class="shop-conk">
+							<p class="con-tit"><i></i>作品展示</p>
+							<div class="shop-con">
+								<!--平铺图-->
+								{php}
+
+								$goinfo = json_decode($info['iamge_info']);
+
+								{/php}
+								{volist name="goinfo" id="vo"}
+								<div class="sub_cont">
+									<img src="{$vo|str_replace='http','https',###}">
+									<p class="text-left"></p>
+								</div>
+								{php}
+
+								file_exists($vo) == true ? "<img src='".$vo."'>" : '';
+
+								{/php}
+
+								{/volist}
+
+
+
+
+							</div>
+						</div>
+						<!--泥料特性-->
+						<div class="shop-conk">
+							<p class="con-tit"><i></i>泥料特性</p>
+							<div class="shop-con">
+								<img class="right mg10" width="266" height="165" src="{$info.mud_image|str_replace='http','https',###}">
+								<p>　　<strong>简介：</strong></p>
+<!--								<p>　　此段泥产于宜兴丁蜀镇本地的黄龙山 (此山开采出来的才是真正优质的正宗 紫砂矿料)，所以俗称本山段泥!</p>-->
+<!--								<p>　　本山段泥也是最难烧的，烧不到位就吐黑，而且容易惊开段泥的烧成温度在1170 度左右，烧成温度比较高，如温度没有烧到位段泥比较容易“吐黑”-->
+<!--									较高，所以一般原矿段泥都要烧到有点发青才好。</p>-->
+<!--								<p><br></p>-->
+								<pre style="white-space:pre-wrap;word-wrap:break-word;">
+									<p data-v-1c281437="" style="text-indent: 2rem;">{$info.mud_keywords}</p>
+								</pre>
+							</div>
+						</div>
+					</div>
+
+					<div class="nrClass" id="nr_02" style="display: none;">
+						<div class="shop-conk">
+							<!--根平台判断-->
+							<p class="con-tit"><i></i>艺人简历</p>
+							<div class="shop-con">
+
+								<div class="nr_zzjj">
+									<span style="float: left; display: inline-block; margin-right: 30px;">
+										<img src="{$info.artist_img|str_replace='http','https',###}">
+									</span>
+									<p>　 {$info.people_name}</p>
+									<p>　　{$info.position}</p>
+									<p>　　{$info.description}</p>
+								</div>
+
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+				<!--评论-留言-->
+				<div class="w commentBox hide">
+					<div id="comment_list_2">
+
+						<div class="news-message yd-message">
+							<p class="lm-title yd-title"><span>评论&nbsp;/&nbsp;</span>留言<i></i></p>
+						</div>
+
+						<div class="news-form">
+							<form action="" name="">
+								<div class="form-wrap yandou-comment">
+									<p><textarea name="news-form-info" id="reply_content" class="news-form-text" style="resize: none;"></textarea></p>
+									<div class="form-inline">
+										<p><span>*</span>手机号码：<input type="text" maxlength="11" name="news-form-tel" id="reply_Tel"></p>
+										<p><span>*</span>您的称呼：<input type="text" name="news-form-name" id="reply_UserName"></p>
+										<!-- <p>微信：<input type="text" name="news-form-wechat" id="wechat"></p> -->
+										<p class="radio-ipt">
+											<input type="radio" name="sex" value="先生" checked="">
+											<label>先生</label>
+											<input type="radio" name="sex" value="女士">
+											<label>女士</label>
+										</p>
+										<p><button type="button" onclick="ajax_comment();" class="news-form-btn yd-news-btn">提交留言</button></p>
+									</div>
+								</div>
+
+							</form>
+						</div>
+
+						<!-- 评论 -->
+						<div class="pub-comment">
+							<!--默认3条 20180608 添加回复功能，后期可直接使用-->
+							<input type="hidden" id="channel" value="2">
+							<input type="hidden" id="assist" value="50006">
+						</div>
+
+
+					</div>
+				</div>
+
+				<!--推荐-->
+				<div class="hyyh-com">
+					<div class="hyyh-com-h">
+						<div class="hyyh-banyy">
+							<!--同款菜单-->
+							<p><span class="on" style="border-bottom:0;font-size: 18px;">相关作品</span></p>
+						</div>
+					</div>
+					<div class="hyyh-com-kw">
+						<div class="hyyh-com-kwk " id="xiangsi">
+							<div class="hyyh-com-kk hyyh-com-kf">
+								<ul class="nProList clearfix">
+									<!-- 循环li -->
+
+									{volist name="link_info" id="vo" offset="0" length="4"}
+									<li>
+										<a title="" href="/pc_goodsinfo?goodsid={$vo.id}" class="nPro-img">
+											<img alt="" src="{$vo.img|str_replace='http','https',###}">
+										</a>
+										<dl class="nPro-detail clearfix">
+											<dd class="nPro-title">
+												<a href="/pc_goodsinfo?goodsid={$vo.id}" title="">{$vo.name}</a>
+											</dd>
+											<dd class="nPro-do">
+												<a href="javascript:void(0)" class="xjBtn xuan" onclick="all_zixun_price('{$vo.goods_no}','{$vo.name}','{$vo.people_name}','{$info.capacity_name}')">点击询价</a>
+											</dd>
+
+											<dd>作者：<a href="">{$vo.people_name}</a></dd>
+											<dd>编号：<a href="">{$vo.goods_no}</a></dd>
+											<dd>泥料：<a href=" ">{$vo.mud_name}</a></dd>
+											<dd>容量：<a href=" ">{$vo.capacity_name}</a></dd>
+
+										</dl>
+									</li>
+
+
+									{/volist}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</main>
+
+		{include file="public/footer" /}
+
+
+		<script src="__PC__/lib/jquery/jquery.js"></script>
+		<script src="__PC__/lib/vue/vue.min.js"></script>
+		<script src="__PC__/js/prudocts.js"></script>
+		<script src="__PC__/js/common.js"></script>
+	</body>
+</html>

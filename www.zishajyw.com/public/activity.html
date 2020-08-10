@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="apple-mobile-web-app-capable" content="yes" /> <!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 控制状态栏显示样式 -->
+		<title>宜兴紫砂壶官网</title>
+		<link rel="shortcut icon" href="img/banner/teapot.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.0/css/swiper.min.css">
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+		<link rel="stylesheet" type="text/css" href="css/activity.css" />
+
+		<script src="https://cdn.staticfile.org/jquery/3.5.0/jquery.min.js"></script>
+		<script src="js/rem.js"></script>
+	</head>
+
+	<body>
+
+		<main id="app">
+			<div id="box">
+				<header>
+					<img src="img/activity/activity_01.jpg">
+					<img src="img/activity/activity_02.jpg">
+				</header>
+				<section>
+					<img src="img/pot/pseudo_graph.jpg" data-original="img/activity/activity_03.jpg" class="lazy">
+					<div class="goods_list">
+						<div class="goods_container" v-for="(item,index) in list_goods" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2>{{item.goods_name}}</span>
+									<span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span>
+									<s data-v-217ef9e2="">原价:{{item.original_price}}</s>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+				<section class="mt15">
+					<img src="img/pot/pseudo_graph.jpg" data-original="img/activity/activity_04.jpg" class="lazy">
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in sgoods" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2>{{item.goods_name}}</span>
+									<span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span>
+									<s data-v-217ef9e2="">原价:{{item.original_price}}</s>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+				<section class="mt15">
+					<img src="img/pot/pseudo_graph.jpg" data-original="img/activity/activity_05.jpg" class="lazy">
+					<h2 class="price_title">6999选2壶(A+B)</h2>
+					<div class="letter">A</div>
+					<div class="goods_list mt10">
+						<div class="goods_container" v-for="(item,index) in agoods" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2>{{item.goods_name}}</span>
+									<span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span>
+									<s data-v-217ef9e2="">原价:{{item.original_price}}</s>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+				<section class="mt50">
+					<div class="letter">B</div>
+					<div class="goods_list mt20">
+						<div class="goods_container" v-for="(item,index) in bgoods" v-key="index">
+							<img alt="" :src="item.img" class="goods_limit" @click="details(index)">
+							<div class="goods_header">
+								<div data-v-217ef9e2="" class="goods_info">
+									<span data-v-217ef9e2>{{item.goods_name}}</span>
+									<span data-v-217ef9e2="">容量:{{item.capacity}}</span>
+									<span data-v-217ef9e2="">作者:{{item.artist_name}}</span>
+									<s data-v-217ef9e2="">原价:{{item.original_price}}</s>
+								</div>
+							</div>
+							<button class="consult2" @click="inquiry(item)">点击询价</button>
+						</div>
+
+					</div>
+				</section>
+
+				<div class="foot-xunjia">
+					<div class="inquiry">
+						<div id="damand"> 咨询{{submit_information.artist_name}}【{{submit_information.goods_name}}】价格</div>
+						<input type="text" class="shouji yu_zi_xun" placeholder="请输入手机号码" autofocus="autofocus" value="" name="xjTel" id="xjTel"
+						 maxlength="11">
+						<button @click="onClickXunjia()">点击提交</button>
+						<span data-v-6e32b6c1="" style="color: rgb(219, 59, 46); font-size: 1.1rem;">客服人员将在10分钟内回复</span>
+					</div>
+
+					<div class="footer-k" @click="close()"> </div>
+				</div>
+				<div class="click_to_consult" @click="location.href='/'">
+					<span>返回首页</span>
+				</div>
+				<div style="width: 100%; height: 6rem;"></div>
+
+			</div>
+			
+
+		</main>
+
+
+		<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+		<script src="https://www.layuicdn.com/layui-v2.5.5/layui.js"></script>
+		<script src="https://cdn.staticfile.org/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+		<script src="https://cdn.staticfile.org/Swiper/4.5.0/js/swiper.min.js"></script>
+		<script>
+			const vm = new Vue({
+				el: '#app',
+				data: {
+					submit_information: {},
+					list_goods: [],
+					sgoods: [],
+					agoods: [],
+					bgoods: []
+				},
+				methods: {
+					lazyload() {
+						$(".lazy").lazyload({
+							threshold: 200, //设置临界点
+							effect: "fadeIn", //使用特效
+							failure_limit: 20, //当图片不连续时,通过 failurelimit 选项来控制加载行为.
+							skip_invisible: false //加载隐藏图片
+						});
+					},
+					inquiry(item, flag) {
+						this.submit_information = item;
+						$('#damand').text('咨询' + item.artist_name + '【' + item.goods_name + '】价格');
+						console.log(item)
+						if (flag == 1) {
+							$('#damand').text(item);
+						}
+						$('.footer-k,.foot-xunjia').show();
+					
+						$('.foot-xunjia').stop().animate({
+					
+							bottom: 0
+					
+						}, 200);
+					
+						$('#fbtn').hide();
+					},
+					onClickXunjia() {
+						layer.load();
+
+						telphone2();
+
+					},
+					close() {
+						$('.footer-k,.foot-xunjia').hide();
+
+						$('#fbtn').show();
+					}
+				},
+				created() {
+					this.list_goods = [{
+						id: 1,
+						img: 'img/activity/goods_01.jpg',
+						goods_name: '红菱碗',
+						artist_name: '王芳',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '300cc',
+						original_price: 12800
+					}, {
+						id: 2,
+						img: 'img/activity/goods_02.jpg',
+						goods_name: '柱础壶',
+						artist_name: '王芳',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '260cc',
+						original_price: 12800
+					}, {
+						id: 3,
+						img: 'img/activity/goods_03.jpg',
+						goods_name: '狮球壶',
+						artist_name: '范利英',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '270cc',
+						original_price: 3800
+					}, {
+						id: 4,
+						img: 'img/activity/goods_04.jpg',
+						goods_name: '子冶石瓢',
+						artist_name: '邹良',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '260cc',
+						original_price: 1680
+					}, {
+						id: 5,
+						img: 'img/activity/goods_05.jpg',
+						goods_name: '四方抽角',
+						artist_name: '范彩琴',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '380cc',
+						original_price: 4500
+					}, {
+						id: 6,
+						img: 'img/activity/goods_06.jpg',
+						goods_name: '葵仿古',
+						artist_name: '张伟军',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '280cc',
+						original_price: 7800
+					}];
+					this.sgoods = [{
+						id: 1,
+						img: 'img/activity/sgoods_01.jpg',
+						goods_name: '传炉壶',
+						artist_name: '吕永勤',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '380cc',
+						original_price: 4300
+					}, {
+						id: 2,
+						img: 'img/activity/sgoods_02.jpg',
+						goods_name: '古承壶',
+						artist_name: '顾洪军',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 4700
+					}, {
+						id: 3,
+						img: 'img/activity/sgoods_03.jpg',
+						goods_name: '锦纹传炉',
+						artist_name: '李洪明',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 8900
+					}, {
+						id: 4,
+						img: 'img/activity/sgoods_04.jpg',
+						goods_name: '井栏壶',
+						artist_name: '李荷生',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '1200cc',
+						original_price: 8300
+					}, {
+						id: 5,
+						img: 'img/activity/sgoods_05.jpg',
+						goods_name: '龙头八卦一捆竹',
+						artist_name: '张伟军',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '280cc',
+						original_price: 6500
+					}, {
+						id: 6,
+						img: 'img/activity/sgoods_06.jpg',
+						goods_name: '如意石瓢',
+						artist_name: '周建芬',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '260cc',
+						original_price: 6500
+					}, {
+						id: 7,
+						img: 'img/activity/sgoods_07.jpg',
+						goods_name: '石瓢壶',
+						artist_name: '李洪明',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 8000
+					}, {
+						id: 8,
+						img: 'img/activity/sgoods_08.jpg',
+						goods_name: '砖方壶',
+						artist_name: '尹怀',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '550cc',
+						original_price: 8900
+					}];
+					this.agoods = [{
+						id: 1,
+						img: 'img/activity/agoods_01.jpg',
+						goods_name: '德钟壶',
+						artist_name: '陈顺根',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 6500
+					}, {
+						id: 2,
+						img: 'img/activity/agoods_02.jpg',
+						goods_name: '掇只壶',
+						artist_name: '许良平',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '380cc',
+						original_price: 6900
+					}, {
+						id: 3,
+						img: 'img/activity/agoods_03.jpg',
+						goods_name: '南瓜壶',
+						artist_name: '范菊英',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '240cc',
+						original_price: 5300
+					}, {
+						id: 4,
+						img: 'img/activity/agoods_04.jpg',
+						goods_name: '石瓢壶',
+						artist_name: '周建芬',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '290cc',
+						original_price: 5900
+					}, {
+						id: 5,
+						img: 'img/activity/agoods_05.jpg',
+						goods_name: '仿古壶',
+						artist_name: '陈顺根',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '200cc',
+						original_price: 5300
+					}, {
+						id: 6,
+						img: 'img/activity/agoods_06.jpg',
+						goods_name: '供春壶',
+						artist_name: '丁洪斌',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '350cc',
+						original_price: 5300
+					}, {
+						id: 7,
+						img: 'img/activity/agoods_07.jpg',
+						goods_name: '云龙壶',
+						artist_name: '许良平',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '300cc',
+						original_price: 5300
+					}, {
+						id: 8,
+						img: 'img/activity/agoods_08.jpg',
+						goods_name: '宫灯如意',
+						artist_name: '许敏芳',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '250cc',
+						original_price: 6500
+					}];
+					this.bgoods = [{
+						id: 1,
+						img: 'img/activity/bgoods_01.jpg',
+						goods_name: '百福汉铎',
+						artist_name: '范菊英',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '350cc',
+						original_price: 3500
+					}, {
+						id: 2,
+						img: 'img/activity/bgoods_02.jpg',
+						goods_name: '高石瓢',
+						artist_name: '顾洪军',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '320cc',
+						original_price: 3300
+					}, {
+						id: 3,
+						img: 'img/activity/bgoods_03.jpg',
+						goods_name: '德钟壶',
+						artist_name: '陈顺根',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 3100
+					}, {
+						id: 4,
+						img: 'img/activity/bgoods_04.jpg',
+						goods_name: '清正四方',
+						artist_name: '陈育平',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 3200
+					}, {
+						id: 5,
+						img: 'img/activity/bgoods_05.jpg',
+						goods_name: '石瓢壶',
+						artist_name: '张菊仙',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '260cc',
+						original_price: 3200
+					}, {
+						id: 6,
+						img: 'img/activity/bgoods_06.jpg',
+						goods_name: '小仿古',
+						artist_name: '杨鹏',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '210cc',
+						original_price: 3200
+					}, {
+						id: 7,
+						img: 'img/activity/bgoods_07.jpg',
+						goods_name: '柱础壶',
+						artist_name: '范菊英',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '300cc',
+						original_price: 3200
+					}, {
+						id: 8,
+						img: 'img/activity/bgoods_08.jpg',
+						goods_name: '子冶石瓢',
+						artist_name: '范菊英',
+						slurry: '清水泥',
+						title: '高工',
+						capacity: '220cc',
+						original_price: 3200
+					}];
+				},
+				mounted() {
+					this.lazyload();
+				}
+			})
+
+			layui.use('layer', function() {
+
+				var layer = layui.layer;
+
+			})
+
+			function telphone2() {
+
+				const telphone = $("#xjTel").val();
+
+				var regCode = /^1\d{10}$/;
+
+				if (regCode.test(telphone) == false) {
+
+					layer.close(layer.index);
+
+					layer.msg('请输入您的手机号,手机号码不正确', {
+						icon: 5,
+						time: 1000
+					})
+
+					return false;
+
+				} else {
+					vm.close();
+					
+					const artist = vm.submit_information.artist_name || '';
+					const goods = vm.submit_information.goods_name || '';
+					const capacity = vm.submit_information.capacity || vm.submit_information;
+					let demand = [artist, goods, capacity];
+					demand = JSON.stringify(demand)
+					console.log(demand)
+
+					$.ajax({
+
+						type: 'post',
+
+						url: 'https://www.zishajyw.com/pot_add',
+
+						data: {
+							'telphone': telphone,
+							'demand': demand
+						},
+
+						dataType: 'json', //跨域请求
+
+						success: function(data) {
+							layer.close(layer.index);
+							
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						},
+
+						error: function() {
+
+							layer.close(layer.index);
+
+							layer.msg('提交成功', {
+								icon: 6,
+								time: 2000
+							})
+
+						}
+
+					})
+
+				}
+
+			}
+		</script>
+
+
+
+
+
+	</body>
+
+</html>
